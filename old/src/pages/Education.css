@@ -1,0 +1,112 @@
+/* Education Page Container */
+.education-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 2.5em;
+  color: #e0e0e0;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background-color: #ff4a57;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  border-radius: 10px;
+}
+
+/* Education Card */
+.education-card {
+  display: flex;
+  align-items: flex-start;
+  background: #252529;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.education-card:hover {
+  transform: scale(1.02);
+}
+
+/* Institution Logo */
+.institution-logo {
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+/* Education Content */
+.education-content {
+  text-align: left;
+  flex: 1;
+}
+
+/* Course List */
+.course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Course Item */
+.course-item {
+  display: flex;
+  justify-content: space-between;
+  background-color: #333;
+  padding: 10px 15px;
+  border-radius: 6px;
+  color: #e0e0e0;
+  align-items: center;
+}
+
+/* Course Title */
+.course-title {
+  font-weight: bold;
+  color: #ffffff;
+  min-width: 320px;
+  flex-shrink: 0;
+}
+
+/* Course Description */
+.course-description {
+  flex-grow: 1;
+  color: #cccccc;
+  text-align: left;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .education-card {
+    flex-direction: column;
+  }
+
+  .institution-logo {
+    width: 80px;
+    margin-bottom: 10px;
+  }
+
+  .course-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .course-title {
+    min-width: auto;
+    margin-bottom: 5px;
+  }
+}

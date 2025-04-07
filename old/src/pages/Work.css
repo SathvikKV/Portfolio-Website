@@ -1,0 +1,131 @@
+/* Work Section */
+.work-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 2.5em;
+  color: #e0e0e0;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background-color: #ff4a57;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  border-radius: 10px;
+}
+
+/* Work Container */
+.work-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+}
+
+/* Work Card */
+.work-card {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  background-color: #252529;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.work-card:hover {
+  transform: scale(1.02);
+}
+
+/* Company Logo */
+.company-logo {
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 20px;
+  background: #fff;
+  padding: 5px;
+}
+
+/* Work Details */
+.work-details {
+  flex: 1;
+  text-align: left;
+  color: #e0e0e0;
+}
+
+/* Job Title */
+.job-title {
+  font-size: 1.6em;
+  color: #ff4a57;
+  margin-bottom: 5px;
+}
+
+/* Company Title */
+.company-title {
+  font-size: 1.2em;
+  color: #ffffff;
+  margin-top: 5px;
+}
+
+/* Location and Duration */
+.location-duration {
+  font-size: 0.9em;
+  color: #ccc;
+  margin: 5px 0 15px;
+}
+
+/* List Styles */
+.work-details ul {
+  padding-left: 15px;
+}
+
+.work-details ul li {
+  background: #2f2f33;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+  font-size: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-left: 4px solid #ff4a57;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+/* Bullet Point for List */
+.work-details ul li::before {
+  content: "•";
+  color: #ff4a57;
+  font-size: 1.5em;
+  margin-right: 10px;
+  line-height: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .work-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .company-logo {
+    margin-bottom: 15px;
+  }
+
+  .work-details {
+    text-align: center;
+  }
+}

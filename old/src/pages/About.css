@@ -1,0 +1,117 @@
+/* About Page Container */
+.about-container {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* Profile Picture */
+.profile-picture {
+  display: block;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  margin: 20px auto;
+  border: 4px solid #ff4a57;
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-picture:hover {
+  transform: scale(1.05);
+}
+
+/* Main Title */
+.section-title {
+  font-size: 2.5em;
+  color: #e0e0e0;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background-color: #ff4a57;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  border-radius: 10px;
+}
+
+/* Intro Text */
+.intro-text {
+  font-size: 1.2em;
+  color: #ccc;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Section Container */
+.about-content {
+  margin-top: 30px;
+}
+
+/* Section Boxes */
+.about-section {
+  background: #252529;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.about-section:hover {
+  transform: scale(1.02);
+}
+
+/* Section Titles */
+.about-subtitle {
+  font-size: 1.5em;
+  color: #ff4a57;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Bullet Points */
+.about-list {
+  padding-left: 20px;
+  list-style: none;
+}
+
+.about-list li {
+  font-size: 1.1em;
+  color: #ccc;
+  margin-bottom: 8px;
+}
+
+/* Highlighted Text */
+.highlight {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .about-container {
+    padding: 20px;
+  }
+
+  .profile-picture {
+    width: 150px;
+    height: 150px;
+  }
+
+  .section-title {
+    font-size: 2em;
+  }
+
+  .about-section {
+    padding: 15px;
+  }
+}

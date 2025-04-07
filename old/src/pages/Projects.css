@@ -1,0 +1,100 @@
+.projects-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* Section Title */
+.section-title {
+  font-size: 2.5em;
+  color: #e0e0e0;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  width: 80px;
+  height: 4px;
+  background-color: #ff4a57;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  border-radius: 10px;
+}
+
+/* Project Category */
+.project-category {
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+/* Category Title */
+.category-title {
+  font-size: 2em;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Project Card */
+.project-card {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #252529;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-card:hover {
+  transform: scale(1.02);
+}
+
+/* Project Image */
+.project-image {
+  width: 220px;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Project Details */
+.project-details {
+  padding: 20px;
+  flex: 1;
+  color: #e0e0e0;
+  text-align: left;
+}
+
+.project-details h3 {
+  font-size: 1.6em;
+  color: #ff4a57;
+  margin-bottom: 10px;
+}
+
+/* Bullet List */
+.project-details ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.project-details ul li {
+  font-size: 1em;
+  margin-bottom: 8px;
+  color: #ccc;
+}
+
+/* Project Link */
+.project-link {
+  display: inline-block;
+  font-size: 0.9em;
+  color: #3498db;
+  text-decoration: none;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
