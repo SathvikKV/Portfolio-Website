@@ -8,6 +8,7 @@ import SkillsSection from "@/components/skills-section";
 import DataDashboardPreview from "@/components/data-dashboard-preview";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
+import ChatbotWidget from "@/components/ChatbotWidget";
 
 export default function HomePage() {
   return (
@@ -21,6 +22,7 @@ export default function HomePage() {
         <ProjectsSection />
         <DataDashboardPreview />
         <SkillsSection />
+        <ChatbotWidget />
         <ContactSection />
       </main>
       <Footer />
