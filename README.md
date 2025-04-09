@@ -4,7 +4,7 @@ This is the source code for my personal portfolio website, built with **Next.js*
 
 ## Live Site
 
-[Visit Portfolio]([https://sathvikkv.github.io/Portfolio-Website](https://sathvik-vadavatha-portfolio.vercel.app/))
+[Visit Portfolio](https://sathvik-vadavatha-portfolio.vercel.app/)
 
 ## Features
 
@@ -39,6 +39,7 @@ This is the source code for my personal portfolio website, built with **Next.js*
 To run locally:
 
 Clone the repository:
+
 ```bash
 git clone https://github.com/SathvikKV/Portfolio-Website.git
 cd Portfolio-Website/new
