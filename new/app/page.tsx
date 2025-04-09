@@ -22,7 +22,6 @@ export default function HomePage() {
         <ProjectsSection />
         <DataDashboardPreview />
         <SkillsSection />
-        <ChatbotWidget />
         <ContactSection />
       </main>
       <Footer />
