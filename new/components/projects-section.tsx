@@ -26,7 +26,7 @@ export default function ProjectsSection() {
       title: "Travel Planner Chatbot",
       description:
         "Built a conversational AI assistant using LangChain, FastAPI, and Streamlit to help users plan personalized trips with recommendations and fallback handling.",
-      image: "/img/projects/ai_travel_Planner.png",
+      image: "/img/projects/ai_travel_planner.png",
       category: "information-systems",
       tags: ["LangChain", "FastAPI", "Streamlit", "LLM"],
       githubUrl: "https://github.com/SathvikKV/AI-Travel-Planner/tree/main",
@@ -56,7 +56,7 @@ export default function ProjectsSection() {
       title: "Ultra-Fast Grocery Delivery Platform",
       description:
         "Developed an order management system using Java, MySQL, and Google Maps API with real-time tracking and data-driven analytics.",
-      image: "/img/projects/quickie.png",
+      image: "/img/projects/quickie.PNG",
       category: "information-systems",
       tags: ["Java", "MySQL", "Google Maps API"],
       githubUrl: "https://github.com/SathvikKV/INFO5100-FinalProject-Team11",
@@ -75,7 +75,7 @@ export default function ProjectsSection() {
       title: "Fuse Element Design for Littelfuse Inc.",
       description:
         "Designed & optimized a new fuse element for electric vehicles with FEA and fatigue testing, improving durability by 83%.",
-      image: "/img/projects/fuse.png",
+      image: "/img/projects/fuse.PNG",
       category: "mechanical",
       tags: ["FEA", "Design", "Testing"],
       demoUrl:
@@ -95,7 +95,7 @@ export default function ProjectsSection() {
       title: "Wall Sensing & Color Recognition Robot",
       description:
         "Developed a two-wheeled autonomous robot using TI C2000 with Raspberry Pi 4 and various sensors for automation.",
-      image: "/img/projects/robot.png",
+      image: "/img/projects/robot.PNG",
       category: "mechanical",
       tags: ["Robotics", "Raspberry Pi", "Sensors"],
       demoUrl:
@@ -106,7 +106,7 @@ export default function ProjectsSection() {
       title: "Test Tube Dispensing Mechanism",
       description:
         "Designed a four-bar linkage system for automated test tube handling with a rack-and-pinion mechanism for precise adjustments.",
-      image: "/img/projects/tray.png",
+      image: "/img/projects/tray.PNG",
       category: "mechanical",
       tags: ["Automation", "Mechanical Design", "Linkage System"],
       demoUrl:
