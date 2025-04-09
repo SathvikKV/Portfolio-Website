@@ -100,9 +100,15 @@ export default function Navbar() {
                     {link.name}
                   </Link>
                 ))}
-                <Button className="mt-4 bg-gradient-to-r from-orange-500 to-red-600 text-white border-none">
-                  Resume
-                </Button>
+                <Link
+                  href="/resume/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Button className="mt-4 bg-gradient-to-r from-orange-500 to-red-600 text-white border-none w-full">
+                    Resume
+                  </Button>
+                </Link>
               </motion.div>
             )}
           </>
@@ -131,9 +137,15 @@ export default function Navbar() {
                 )}
               </Link>
             ))}
-            <Button className="bg-gradient-to-r from-orange-500 to-red-600 text-white border-none hover:shadow-[0_0_15px_rgba(249,115,22,0.5)]">
-              Resume
-            </Button>
+            <Link
+              href="/resume/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button className="bg-gradient-to-r from-orange-500 to-red-600 text-white border-none hover:shadow-[0_0_15px_rgba(249,115,22,0.5)]">
+                Resume
+              </Button>
+            </Link>
           </nav>
         )}
       </div>

@@ -17,30 +17,30 @@ interface WorkExperience {
 
 export default function WorkSection() {
   const experiences: WorkExperience[] = [
-    {
-      company: "ITC Infotech USA",
-      logo: "/img/projects/itcinfotech.png",
-      position: "PLM Intern",
-      location: "Frederick, MD",
-      period: "Sept 2022 – Oct 2023",
-      responsibilities: [
-        "Developed & executed test cases for PTC Windchill to ensure seamless CAD data integration.",
-        "Managed CAD data version control & change management for optimized workflows.",
-        "Configured Windchill to align with business needs, improving productivity.",
-      ],
-    },
-    {
-      company: "ITC Ltd (Paperboards and Specialty Papers Division)",
-      logo: "/img/projects/itcpspd.png",
-      position: "Data Analyst Intern",
-      location: "Hyderabad, India",
-      period: "June 2021 – Aug 2021",
-      responsibilities: [
-        "Applied lean methodologies to analyze production processes and identify inefficiencies.",
-        "Calibrated IoT proximity sensors on forklifts, improving safety & real-time detection.",
-        "Designed a real-time KPI dashboard in Tableau for operational insights.",
-      ],
-    },
+      {
+        company: "ITC Infotech USA",
+        logo: "/img/projects/itcinfotech.png",
+        position: "Product Lifecycle Management Intern",
+        location: "Frederick, MD",
+        period: "Sept 2022 – Oct 2023",
+        responsibilities: [
+          "Developed and executed test cases for PTC Windchill, validating data workflows and system functionality to ensure seamless integration of engineering data.",
+          "Managed and structured 3D model data, ensuring version control, revision tracking, and change management for streamlined collaboration.",
+          "Configured Windchill for data and document management based on business needs, setting up custom attributes, naming conventions, and change workflows to optimize efficiency.",
+        ],
+      },
+      {
+        company: "ITC Ltd (Paperboards and Specialty Papers Division)",
+        logo: "/img/projects/itcpspd.png",
+        position: "Engineering Intern",
+        location: "Hyderabad, India",
+        period: "June 2021 – Aug 2021",
+        responsibilities: [
+          "Conducted process analysis using lean methodologies and statistical tools (Pareto charts, regression analysis) to identify inefficiencies and reduce waste.",
+          "Built a Tableau dashboard to track machine downtime and production rates, enabling real-time insights and process adjustments that reduced downtime by 12% through proactive maintenance.",
+          "Calibrated IoT proximity sensors on forklifts, improving safety by enhancing real-time detection and feedback systems.",
+        ],
+      },
     {
       company: "Dassault Systems",
       logo: "/img/projects/dsystems.jpeg",
@@ -57,11 +57,11 @@ export default function WorkSection() {
       company: "Universal Robots A/S",
       logo: "/img/projects/ur.png",
       position: "Engineering Intern",
-      location: "India",
+      location: "Bangalore, India",
       period: "June 2019 – July 2019",
       responsibilities: [
         "Developed automation solutions using UR10 collaborative robots.",
-        "Automated 80% of tasks across 3 industrial stations, reducing manual labor.",
+        "Qualified inbound sales leads and facilitated educational sessions to demonstrate collaborative robot (cobot) applications to potential clients.",
         "Led the installation of a collaborative robot for a palletizing application.",
       ],
     },

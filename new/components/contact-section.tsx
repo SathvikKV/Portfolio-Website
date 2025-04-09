@@ -1,7 +1,6 @@
 "use client";
 
 import type React from "react";
-
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
@@ -20,6 +19,7 @@ export default function ContactSection() {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -30,19 +30,34 @@ export default function ContactSection() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage("");
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const res = await fetch("https://formspree.io/f/mvgkdpov", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formState),
+      });
+
+      if (res.ok) {
+        setIsSubmitted(true);
+        setFormState({ name: "", email: "", message: "" });
+
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        const data = await res.json();
+        setErrorMessage(data?.error || "Something went wrong.");
+      }
+    } catch (err) {
+      setErrorMessage("Network error. Please try again later.");
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormState({ name: "", email: "", message: "" });
-
-      // Reset success message after 5 seconds
-      setTimeout(() => setIsSubmitted(false), 5000);
-    }, 1500);
+    }
   };
 
   const contactInfo = [
@@ -68,10 +83,10 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="py-20 relative">
-      {/* Background elements */}
+      {/* Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-full bg-black"></div>
-        <div className="absolute bottom-0 left-0 w-[30%] h-[30%] rounded-full bg-gradient-to-br from-orange-500/5 to-red-600/5 blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-black" />
+        <div className="absolute bottom-0 left-0 w-[30%] h-[30%] rounded-full bg-gradient-to-br from-orange-500/5 to-red-600/5 blur-3xl" />
       </div>
 
       <div className="container relative z-10">
@@ -89,7 +104,7 @@ export default function ContactSection() {
             Contact
           </Badge>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-red-600 rounded-full mb-6"></div>
+          <div className="w-20 h-1 bg-gradient-to-r from-orange-500 to-red-600 rounded-full mb-6" />
           <p className="text-gray-300 max-w-2xl">
             Have a question or want to work together? Feel free to reach out!
           </p>
@@ -149,50 +164,47 @@ export default function ContactSection() {
             transition={{ duration: 0.5 }}
           >
             <Card className="bg-gray-900 border-0 overflow-hidden relative">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg blur opacity-30"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg blur opacity-30" />
               <CardContent className="p-6 relative">
                 <h3 className="text-2xl font-bold mb-4 text-orange-500">
                   Send a Message
                 </h3>
+
                 {isSubmitted ? (
                   <div className="bg-green-900/30 text-green-400 p-4 rounded-md border border-green-700">
-                    Thank you for your message! I'll get back to you as soon as
-                    possible.
+                    Thank you for your message! I’ll get back to you soon.
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                      <Input
-                        name="name"
-                        placeholder="Your Name"
-                        value={formState.name}
-                        onChange={handleChange}
-                        required
-                        className="bg-gray-800 border-gray-700 focus:border-orange-500"
-                      />
-                    </div>
-                    <div>
-                      <Input
-                        name="email"
-                        type="email"
-                        placeholder="Your Email"
-                        value={formState.email}
-                        onChange={handleChange}
-                        required
-                        className="bg-gray-800 border-gray-700 focus:border-orange-500"
-                      />
-                    </div>
-                    <div>
-                      <Textarea
-                        name="message"
-                        placeholder="Your Message"
-                        value={formState.message}
-                        onChange={handleChange}
-                        rows={5}
-                        required
-                        className="bg-gray-800 border-gray-700 focus:border-orange-500"
-                      />
-                    </div>
+                    <Input
+                      name="name"
+                      placeholder="Your Name"
+                      value={formState.name}
+                      onChange={handleChange}
+                      required
+                      className="bg-gray-800 border-gray-700 focus:border-orange-500"
+                    />
+                    <Input
+                      name="email"
+                      type="email"
+                      placeholder="Your Email"
+                      value={formState.email}
+                      onChange={handleChange}
+                      required
+                      className="bg-gray-800 border-gray-700 focus:border-orange-500"
+                    />
+                    <Textarea
+                      name="message"
+                      placeholder="Your Message"
+                      value={formState.message}
+                      onChange={handleChange}
+                      rows={5}
+                      required
+                      className="bg-gray-800 border-gray-700 focus:border-orange-500"
+                    />
+                    {errorMessage && (
+                      <div className="text-red-500 text-sm">{errorMessage}</div>
+                    )}
                     <Button
                       type="submit"
                       className="w-full bg-gradient-to-r from-orange-500 to-red-600 text-white border-none hover:shadow-[0_0_15px_rgba(249,115,22,0.5)]"
@@ -213,12 +225,12 @@ export default function ContactSection() {
                               r="10"
                               stroke="currentColor"
                               strokeWidth="4"
-                            ></circle>
+                            />
                             <path
                               className="opacity-75"
                               fill="currentColor"
                               d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                            ></path>
+                            />
                           </svg>
                           Sending...
                         </span>

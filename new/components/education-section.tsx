@@ -24,7 +24,7 @@ export default function EducationSection() {
       ],
     },
     {
-      degree: "Bachelor of Technology in Mechanical Engineering",
+      degree: "Bachelor of Science in Mechanical Engineering",
       institution: "University of Illinois at Urbana-Champaign (UIUC)",
       logo: "UIUC",
       imagePath: "/img/projects/uiuc.png",
