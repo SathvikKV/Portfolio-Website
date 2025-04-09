@@ -2,9 +2,9 @@
 
 This is the source code for my personal portfolio website, built with **Next.js**, **Tailwind CSS**, and **ShadCN UI**. It serves as a digital portfolio to showcase my background, work experience, technical skills, and selected projects in data science, AI, and engineering.
 
-## 🔗 Live Site
+## Live Site
 
-[Visit Portfolio](https://sathvikkv.github.io/Portfolio-Website)
+[Visit Portfolio]([https://sathvikkv.github.io/Portfolio-Website](https://sathvik-vadavatha-portfolio.vercel.app/))
 
 ## Features
 
@@ -38,11 +38,11 @@ This is the source code for my personal portfolio website, built with **Next.js*
 
 To run locally:
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/SathvikKV/Portfolio-Website.git
-   cd Portfolio-Website/new
-   ```
+Clone the repository:
+```bash
+git clone https://github.com/SathvikKV/Portfolio-Website.git
+cd Portfolio-Website/new
+```
    
 Install dependencies:
 
