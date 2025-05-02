@@ -8,6 +8,7 @@ import {
   Lightbulb,
   Wrench,
   Code,
+  BarChart,
   Cpu,
   Database,
 } from "lucide-react";
@@ -61,21 +62,52 @@ export default function AboutSection() {
           >
             <div className="absolute -inset-1 bg-gradient-to-r from-orange-500 to-red-600 rounded-lg blur-sm" />
             <Card className="bg-gray-900/90 border border-gray-700 rounded-xl relative z-10 backdrop-blur">
-              <CardContent className="p-8 space-y-6 text-left">
+              <CardContent className="p-8 space-y-8 text-left text-[15px] md:text-base">
                 <div>
                   <h3 className="text-2xl font-bold text-orange-500 mb-2">
                     My Background
                   </h3>
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    I’m a hybrid problem-solver with a background in{" "}
+                  <p className="text-gray-300 leading-relaxed">
+                    I’m a systems-minded engineer at the intersection of{" "}
                     <strong>Information Systems</strong> and{" "}
-                    <strong>Mechanical Engineering</strong>, passionate about
-                    building AI-powered tools that deliver real-world value.
+                    <strong>Mechanical Engineering</strong>, driven to design
+                    and deliver intelligent, scalable AI solutions that bridge
+                    data, design, and deployment.
                   </p>
                 </div>
 
-                <div className="space-y-5">
-                  {/* Card 1 */}
+                <div className="space-y-6">
+                  {/* 1 - Data Engineering */}
+                  <div className="flex gap-3 items-start">
+                    <Database className="text-orange-500 w-5 h-5 mt-1" />
+                    <div>
+                      <h4 className="text-orange-400 font-medium mb-1 text-sm">
+                        🧱 Data Engineering
+                      </h4>
+                      <p className="text-gray-400 text-sm">
+                        Designed robust pipelines using Airflow, AWS S3, and
+                        Snowflake for ingesting, storing, and managing
+                        structured and unstructured data at scale.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* 2 - Data Analytics */}
+                  <div className="flex gap-3 items-start">
+                    <BarChart className="text-orange-500 w-5 h-5 mt-1" />
+                    <div>
+                      <h4 className="text-orange-400 font-medium mb-1 text-sm">
+                        📊 Data Analytics
+                      </h4>
+                      <p className="text-gray-400 text-sm">
+                        Transformed raw data into insights using Python, Pandas,
+                        Tableau, and Power BI, enabling informed decisions
+                        through storytelling and visualization.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* 3 - AI & Cloud Engineering */}
                   <div className="flex gap-3 items-start">
                     <Rocket className="text-orange-500 w-5 h-5 mt-1" />
                     <div>
@@ -83,15 +115,14 @@ export default function AboutSection() {
                         🚀 AI & Cloud Engineering
                       </h4>
                       <p className="text-gray-400 text-sm">
-                        Built and deployed <strong>LLM-powered</strong> apps with
-                        FastAPI, Streamlit, Docker, and AWS. Integrated OpenAI,
-                        LangChain, and Pinecone to create smart, scalable
-                        systems.
+                        Integrated LLMs like GPT-4 with FastAPI and Pinecone to
+                        create intelligent systems, and deployed them securely
+                        using Docker and AWS.
                       </p>
                     </div>
                   </div>
 
-                  {/* Card 2 */}
+                  {/* 4 - Data-Driven Thinking */}
                   <div className="flex gap-3 items-start">
                     <Lightbulb className="text-orange-500 w-5 h-5 mt-1" />
                     <div>
@@ -99,24 +130,26 @@ export default function AboutSection() {
                         🧠 Data-Driven Thinking
                       </h4>
                       <p className="text-gray-400 text-sm">
-                        From real-time dashboards to deep analytics, I turn messy
-                        data into decisions using Python, Pandas, Power BI, and
-                        Tableau.
+                        My decisions are grounded in data—from feature
+                        engineering to system architecture— ensuring every
+                        product I build is measurable, improvable, and
+                        impactful.
                       </p>
                     </div>
                   </div>
 
-                  {/* Card 3 */}
+                  {/* 5 - Full-Stack Execution */}
                   <div className="flex gap-3 items-start">
                     <Wrench className="text-orange-500 w-5 h-5 mt-1" />
                     <div>
                       <h4 className="text-orange-400 font-medium mb-1 text-sm">
-                        🛠️ End-to-End Execution
+                        🛠️ Full-Stack Execution
                       </h4>
                       <p className="text-gray-400 text-sm">
-                        I love shipping. From idea → pipeline → UI → deployment,
-                        I’ve built full-stack systems powered by Airflow, S3,
-                        Snowflake, and RAG pipelines.
+                        I love bringing ideas to life—taking projects from data
+                        pipelines and ML models to interactive UIs and cloud
+                        deployment with tools like Streamlit, React, and
+                        FastAPI.
                       </p>
                     </div>
                   </div>

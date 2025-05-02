@@ -15,12 +15,15 @@ export default function EducationSection() {
       location: "Boston, MA",
       period: "2024 - 2025",
       description:
-        "Specialized in Data Science and Engineering with a focus on big data technologies, machine learning, and business intelligence.",
+        "Concentration in Data Analytics and Engineering, with coursework focused on big data systems, AI-powered applications, and full-stack development.",
       courses: [
         "Data Science Engineering Methods",
+        "Prompt Engineering and AI",
+        "Advances in Data Science and Architecture",
         "Database Management Systems",
-        "Generative AI",
-        "Big Data and Intelligence Systems",
+        "Big Data Systems and Intelligence Analytics",
+        "Object-Oriented Programming",
+        "Data Structures and Algorithms",
       ],
     },
     {
@@ -31,12 +34,15 @@ export default function EducationSection() {
       location: "Champaign, IL",
       period: "2018 - 2022",
       description:
-        "Focused on mechanical design, automation, and manufacturing processes with honors in robotics applications.",
+        "Specialized in product design, manufacturing systems, and robotics with hands-on experience in CAD modeling and automation.",
       courses: [
-        "Robotics",
-        "CAD/CAM",
-        "Manufacturing Processes",
-        "Automation Systems",
+        "Product Design and CAD",
+        "Design for Manufacturability",
+        "Control Systems and Robotics Programming",
+        "Solid Mechanics",
+        "Fluid Mechanics",
+        "Thermodynamics",
+        "Linear Algebra",
       ],
     },
   ];
