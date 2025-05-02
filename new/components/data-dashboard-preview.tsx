@@ -10,6 +10,16 @@ export default function DataDashboardPreview() {
   const dashboards = [
     {
       id: 1,
+      title: "GANs for Data Augmentation",
+      category: "analysis",
+      description:
+        "Implemented DCGAN and Conditional GAN using TensorFlow to generate synthetic MNIST and Fashion-MNIST images for data augmentation and class balancing.",
+      image: "/img/data/gan.png",
+      link: "https://github.com/SathvikKV/Generative-Adversarial-Networks-GANs-/blob/main/notebooks/002443505_GAN_Notebook.ipynb",
+    },
+
+    {
+      id: 2,
       title: "Causality: F1 & Rain",
       category: "analysis",
       description:
@@ -18,7 +28,7 @@ export default function DataDashboardPreview() {
       link: "https://github.com/SathvikKV/F1_Causal_Analysis/blob/main/002443505_Causality_Crash_Course_Written_Section.ipynb",
     },
     {
-      id: 2,
+      id: 3,
       title: "Video Game Sales & Causality",
       category: "analysis",
       description:
@@ -27,7 +37,7 @@ export default function DataDashboardPreview() {
       link: "https://github.com/SathvikKV/Video_Games_Sales_Causality/blob/main/002443505_Causality_Crash_Course_Worked_Example.ipynb",
     },
     {
-      id: 3,
+      id: 4,
       title: "Neural Network Type Classifier",
       category: "analysis",
       description:
@@ -36,7 +46,7 @@ export default function DataDashboardPreview() {
       link: "https://github.com/SathvikKV/Neural_Network_Type_Classifier/blob/main/Neural_Network_Type_Classifier.ipynb",
     },
     {
-      id: 4,
+      id: 5,
       title: "YouTube Virality - Data Understanding",
       category: "analysis",
       description:
@@ -45,16 +55,7 @@ export default function DataDashboardPreview() {
       link: "https://github.com/SathvikKV/ML_YoutubeVirality/blob/main/Sathvik_Vadavatha_MachineLearningConcepts_UnderstandingData.ipynb",
     },
     {
-      id: 5,
-      title: "Titanic ML Case Study",
-      category: "analysis",
-      description:
-        "Applied machine learning techniques on the Titanic dataset to predict survival.",
-      image: "/img/data/titanic.jpg",
-      link: "https://github.com/SathvikKV/ML_Titanic/blob/main/Sathvik_Vadavatha_MachineLearningConcepts_WorkedExample.ipynb",
-    },
-    {
-      id: 6,
+      id: 7,
       title: "Ocean Acidification Analysis",
       category: "analysis",
       description:
@@ -63,7 +64,7 @@ export default function DataDashboardPreview() {
       link: "https://github.com/SathvikKV/Ocean_Acidification/blob/main/Ocean_Acidification.ipynb",
     },
     {
-      id: 7,
+      id: 8,
       title: "Sales Dashboard (Power BI)",
       category: "visualization",
       description:
@@ -72,7 +73,7 @@ export default function DataDashboardPreview() {
       link: "#",
     },
     {
-      id: 8,
+      id: 9,
       title: "Ocean CO2 Impact (Tableau)",
       category: "visualization",
       description:

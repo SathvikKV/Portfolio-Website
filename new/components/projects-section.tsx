@@ -22,16 +22,6 @@ interface Project {
 export default function ProjectsSection() {
   const projects: Project[] = [
     {
-      id: 3,
-      title: "FinSight AI",
-      description:
-        "Developed FinSightAI, a full-stack AI platform that analyzes SEC filings using Retrieval-Augmented Generation (RAG), enabling semantic search, comparisons, and report drafting. Built a FastAPI backend with Pinecone and GPT-4 integration, and deployed a responsive Next.js frontend on AWS EC2 with PostgreSQL user authentication and PDF export.",
-      image: "/img/projects/finsight_ai.png",
-      category: "information-systems",
-      tags: ["RAG", "FastAPI", "Next.js", "GPT-4", "Pinecone", "AWS"],
-      githubUrl: "https://github.com/SathvikKV/FinSightAI",
-    },
-    {
       id: 1,
       title: "NutriGuard AI",
       description:
@@ -41,7 +31,16 @@ export default function ProjectsSection() {
       tags: ["OCR", "FastAPI", "RAG", "GPT-4", "Azure", "Pinecone", "AWS"],
       githubUrl: "https://github.com/SathvikKV/NutriGuardAI",
     },
-
+    {
+      id: 3,
+      title: "FinSight AI",
+      description:
+        "Developed FinSightAI, a full-stack AI platform that analyzes SEC filings using Retrieval-Augmented Generation (RAG), enabling semantic search, comparisons, and report drafting. Built a FastAPI backend with Pinecone and GPT-4 integration, and deployed a responsive Next.js frontend on AWS EC2 with PostgreSQL user authentication and PDF export.",
+      image: "/img/projects/finsight_ai.png",
+      category: "information-systems",
+      tags: ["RAG", "FastAPI", "Next.js", "GPT-4", "Pinecone", "AWS"],
+      githubUrl: "https://github.com/SathvikKV/FinSightAI",
+    },
     {
       id: 4,
       title: "Travel Planner Chatbot",
