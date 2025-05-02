@@ -26,7 +26,7 @@ export default function ProjectsSection() {
       title: "NutriGuard AI",
       description:
         "Built an AI-powered nutrition assistant using Azure OCR and GPT-4 to extract ingredients, flag harmful additives, and summarize health risks. Implemented JWT-authenticated user journaling, macro estimation, and RAG-based meal Q&A using Pinecone, deployed on AWS EC2 with Docker.",
-      image: "/img/projects/nutriguard_ai.png",
+      image: "/img/projects/nutriguard_ai.PNG",
       category: "information-systems",
       tags: ["OCR", "FastAPI", "RAG", "GPT-4", "Azure", "Pinecone", "AWS"],
       githubUrl: "https://github.com/SathvikKV/NutriGuardAI",
