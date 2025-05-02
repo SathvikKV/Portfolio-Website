@@ -14,8 +14,9 @@ export default function DataDashboardPreview() {
       category: "analysis",
       description:
         "Implemented DCGAN and Conditional GAN using TensorFlow to generate synthetic MNIST and Fashion-MNIST images for data augmentation and class balancing.",
-      image: "/img/data/gan.png",
+      image: "/img/data/gan.PNG",
       link: "https://github.com/SathvikKV/Generative-Adversarial-Networks-GANs-/blob/main/notebooks/002443505_GAN_Notebook.ipynb",
+      demo: "https://sathvikkv.github.io/Generative-Adversarial-Networks-GANs-/",
     },
 
     {

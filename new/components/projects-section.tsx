@@ -36,7 +36,7 @@ export default function ProjectsSection() {
       title: "FinSight AI",
       description:
         "Developed FinSightAI, a full-stack AI platform that analyzes SEC filings using Retrieval-Augmented Generation (RAG), enabling semantic search, comparisons, and report drafting. Built a FastAPI backend with Pinecone and GPT-4 integration, and deployed a responsive Next.js frontend on AWS EC2 with PostgreSQL user authentication and PDF export.",
-      image: "/img/projects/finsight_ai.png",
+      image: "/img/projects/finsight_ai.PNG",
       category: "information-systems",
       tags: ["RAG", "FastAPI", "Next.js", "GPT-4", "Pinecone", "AWS"],
       githubUrl: "https://github.com/SathvikKV/FinSightAI",
