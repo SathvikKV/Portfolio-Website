@@ -22,7 +22,28 @@ interface Project {
 export default function ProjectsSection() {
   const projects: Project[] = [
     {
-      id: 8,
+      id: 3,
+      title: "FinSight AI",
+      description:
+        "Developed FinSightAI, a full-stack AI platform that analyzes SEC filings using Retrieval-Augmented Generation (RAG), enabling semantic search, comparisons, and report drafting. Built a FastAPI backend with Pinecone and GPT-4 integration, and deployed a responsive Next.js frontend on AWS EC2 with PostgreSQL user authentication and PDF export.",
+      image: "/img/projects/finsight_ai.png",
+      category: "information-systems",
+      tags: ["RAG", "FastAPI", "Next.js", "GPT-4", "Pinecone", "AWS"],
+      githubUrl: "https://github.com/SathvikKV/FinSightAI",
+    },
+    {
+      id: 1,
+      title: "NutriGuard AI",
+      description:
+        "Built an AI-powered nutrition assistant using Azure OCR and GPT-4 to extract ingredients, flag harmful additives, and summarize health risks. Implemented JWT-authenticated user journaling, macro estimation, and RAG-based meal Q&A using Pinecone, deployed on AWS EC2 with Docker.",
+      image: "/img/projects/nutriguard_ai.png",
+      category: "information-systems",
+      tags: ["OCR", "FastAPI", "RAG", "GPT-4", "Azure", "Pinecone", "AWS"],
+      githubUrl: "https://github.com/SathvikKV/NutriGuardAI",
+    },
+
+    {
+      id: 4,
       title: "Travel Planner Chatbot",
       description:
         "Built a conversational AI assistant using LangChain, FastAPI, and Streamlit to help users plan personalized trips with recommendations and fallback handling.",
@@ -32,7 +53,7 @@ export default function ProjectsSection() {
       githubUrl: "https://github.com/SathvikKV/AI-Travel-Planner/tree/main",
     },
     {
-      id: 9,
+      id: 5,
       title: "TED Talks Exploration Platform",
       description:
         "Developed an AI-powered platform using RAG, FastAPI, and CoPilotKit UI for exploring TED Talks, generating mind maps, and creating research playbooks.",
@@ -42,7 +63,7 @@ export default function ProjectsSection() {
       githubUrl: "https://github.com/BigDataIA-Fall2024-TeamB8/Final_Project",
     },
     {
-      id: 1,
+      id: 2,
       title: "Automated Data Ingestion & AI-Powered Summarization",
       description:
         "Developed an Airflow-based data pipeline integrating S3 and Snowflake with an interactive FastAPI & Streamlit UI for document exploration.",
@@ -52,7 +73,7 @@ export default function ProjectsSection() {
       githubUrl: "https://github.com/BigDataIA-Fall2024-TeamB8/Assignment-2",
     },
     {
-      id: 2,
+      id: 6,
       title: "Ultra-Fast Grocery Delivery Platform",
       description:
         "Developed an order management system using Java, MySQL, and Google Maps API with real-time tracking and data-driven analytics.",
@@ -62,16 +83,7 @@ export default function ProjectsSection() {
       githubUrl: "https://github.com/SathvikKV/INFO5100-FinalProject-Team11",
     },
     {
-      id: 3,
-      title: "Bitcoin Price Analysis & Trend Prediction",
-      description:
-        "Developed a Python-based system for historical Bitcoin data analysis with ARIMA models and K-means clustering for price forecasting.",
-      image: "/placeholder.svg?height=600&width=800",
-      category: "information-systems",
-      tags: ["Python", "ARIMA", "K-means", "Data Analysis"],
-    },
-    {
-      id: 4,
+      id: 7,
       title: "Fuse Element Design for Littelfuse Inc.",
       description:
         "Designed & optimized a new fuse element for electric vehicles with FEA and fatigue testing, improving durability by 83%.",
@@ -82,7 +94,7 @@ export default function ProjectsSection() {
         "https://docs.google.com/presentation/d/1n_T33HZPz9eYb9_Qu4yyI0YgiJCRmbqX/edit?usp=sharing",
     },
     {
-      id: 5,
+      id: 8,
       title: "3D Printed Manual Transmission System",
       description:
         "Designed a planetary gear system with three power modes, performed gear train calculations and 3D modeling.",
@@ -91,7 +103,7 @@ export default function ProjectsSection() {
       tags: ["3D Modeling", "Gear Design", "Mechanical Systems"],
     },
     {
-      id: 6,
+      id: 9,
       title: "Wall Sensing & Color Recognition Robot",
       description:
         "Developed a two-wheeled autonomous robot using TI C2000 with Raspberry Pi 4 and various sensors for automation.",
@@ -102,7 +114,7 @@ export default function ProjectsSection() {
         "https://www.hackster.io/sathvik-vadavatha/obstacle-detecting-and-color-following-robot-pair-2b60ba",
     },
     {
-      id: 7,
+      id: 10,
       title: "Test Tube Dispensing Mechanism",
       description:
         "Designed a four-bar linkage system for automated test tube handling with a rack-and-pinion mechanism for precise adjustments.",
