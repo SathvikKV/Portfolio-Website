@@ -30,9 +30,9 @@ This is the source code for my personal portfolio website, built with **Next.js*
 - **Hosting:** GitHub Pages
 
 ## Folder Structure (Simplified)
-
+```yaml
 /public /img → All project and logo images /resume → Resume PDF /src /app → Main pages and routing /components → Reusable components (Navbar, Footer, Sections) /hooks → Custom hooks (e.g., responsive check) /lib → Utility functions /styles → Global styles and themes
-
+```
 
 ## Getting Started
 
