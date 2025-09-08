@@ -77,9 +77,11 @@ export default function SkillsSection() {
   ];
 
   const allSkills = [
+    // Programming
     "Python",
     "Java",
     "R",
+    // Data/ML
     "Pandas",
     "NumPy",
     "TensorFlow",
@@ -88,22 +90,27 @@ export default function SkillsSection() {
     "Tableau",
     "Excel",
     "Power BI",
+    // Web
     "Streamlit",
     "React",
     "Vue.js",
     "HTML",
     "CSS",
+    // Cloud (split out but included in 'all')
     "AWS",
     "GCP",
     "Azure",
+    "Terraform",
     "Docker",
     "Airflow",
     "Git",
+    // Databases
     "SQL",
     "PostgreSQL",
     "Snowflake",
     "MongoDB",
     "Hadoop",
+    // Other
     "PTC Windchill",
     "LangChain",
     "LangGraph",
@@ -111,6 +118,7 @@ export default function SkillsSection() {
     "Probability",
     "Statistics",
     "Time Series",
+    // Mech
     "SolidWorks",
     "AutoCAD",
     "MATLAB",
@@ -204,7 +212,8 @@ export default function SkillsSection() {
                   "all",
                   "programming",
                   "data-ml",
-                  "web-cloud",
+                  "cloud",
+                  "web",
                   "databases",
                   "other",
                   "mech",
@@ -225,9 +234,11 @@ export default function SkillsSection() {
             <TabsContent value="all">
               <TechGrid skills={allSkills} />
             </TabsContent>
+
             <TabsContent value="programming">
               <TechGrid skills={["Python", "Java", "R"]} />
             </TabsContent>
+
             <TabsContent value="data-ml">
               <TechGrid
                 skills={[
@@ -242,28 +253,32 @@ export default function SkillsSection() {
                 ]}
               />
             </TabsContent>
-            <TabsContent value="web-cloud">
+
+            {/* WEB SEPARATED FROM CLOUD */}
+            <TabsContent value="web">
+              <TechGrid skills={["Streamlit", "React", "Vue.js", "HTML", "CSS"]} />
+            </TabsContent>
+
+            <TabsContent value="cloud">
               <TechGrid
                 skills={[
-                  "Streamlit",
-                  "React",
-                  "Vue.js",
-                  "HTML",
-                  "CSS",
                   "AWS",
                   "GCP",
                   "Azure",
+                  "Terraform",
                   "Docker",
                   "Airflow",
                   "Git",
                 ]}
               />
             </TabsContent>
+
             <TabsContent value="databases">
               <TechGrid
                 skills={["SQL", "PostgreSQL", "Snowflake", "MongoDB", "Hadoop"]}
               />
             </TabsContent>
+
             <TabsContent value="other">
               <TechGrid
                 skills={[
@@ -277,10 +292,9 @@ export default function SkillsSection() {
                 ]}
               />
             </TabsContent>
+
             <TabsContent value="mech">
-              <TechGrid
-                skills={["SolidWorks", "AutoCAD", "MATLAB", "LabVIEW"]}
-              />
+              <TechGrid skills={["SolidWorks", "AutoCAD", "MATLAB", "LabVIEW"]} />
             </TabsContent>
           </Tabs>
         </motion.div>
@@ -308,7 +322,7 @@ function TechIcon({ name, icon }: { name: string; icon: React.ReactNode }) {
       transition={{ duration: 0.3 }}
       className="flex flex-col items-center"
     >
-      <div className="w-16 h-16 bg-gray-800 rounded-lg p-2 flex items-center justify-center mb-2 hover:bg-gray-700 transition-colors">
+      <div className="w-16 h-16 bg-gray-8 00 rounded-lg p-2 flex items-center justify-center mb-2 hover:bg-gray-700 transition-colors">
         {icon}
       </div>
       <span className="text-xs text-center text-gray-300">{name}</span>

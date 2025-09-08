@@ -6,83 +6,124 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+type DashItem = {
+  id: number;
+  title: string;
+  category: "analysis" | "visualization";
+  description: string;
+  image?: string;
+  link?: string;
+  demo?: string;
+  draft?: boolean; // <--- set to false to make visible
+};
+
 export default function DataDashboardPreview() {
-  const dashboards = [
+  // NOTE:
+  // - First two items are placeholders (drafts) you asked for.
+  // - GANs is FIRST visible card, Neural Network Type Classifier is SECOND.
+  const dashboards: DashItem[] = [
+    // -- PLACEHOLDER 1 (draft) ---------------------------------------------
+    {
+      id: 100,
+      draft: false, // flip to false when ready
+      title: "Modelling Churn in Energy Company",
+      category: "analysis",
+      description:
+        "BCG Gamma take-home: build and evaluate a churn model for SME energy clients. Explore variable importance, power vs. consumption correlation, and channel effects; simulate a 20% retention offer policy.",
+      image: "/img/data/churn-placeholder.png",
+      link: "#", // add your repo / notebook link
+      demo: "#", // optional
+    },
+    // -- PLACEHOLDER 2 (draft) ---------------------------------------------
+    {
+      id: 101,
+      draft: false, // flip to false when ready
+      title: "Model Building on a Synthetic Dataset",
+      category: "analysis",
+      description:
+        "Capital One take-home: train on 5,000×254 features, predict 1,000 targets. Deliver MSE-optimized predictions, brief methodology, and (optional) reproducible model artifact.",
+      image: "/img/data/synth-placeholder.png",
+      link: "#",
+      demo: "#",
+    },
+
+    // VISIBLE CARDS (ordered)
     {
       id: 1,
       title: "GANs for Data Augmentation",
       category: "analysis",
       description:
-        "Implemented DCGAN and Conditional GAN using TensorFlow to generate synthetic MNIST and Fashion-MNIST images for data augmentation and class balancing.",
+        "Implemented DCGAN and Conditional GAN (TensorFlow) to generate MNIST/Fashion-MNIST for augmentation and class balancing.",
       image: "/img/data/gan.PNG",
       link: "https://github.com/SathvikKV/Generative-Adversarial-Networks-GANs-/blob/main/notebooks/002443505_GAN_Notebook.ipynb",
       demo: "https://sathvikkv.github.io/Generative-Adversarial-Networks-GANs-/",
     },
-
     {
       id: 2,
-      title: "Causality: F1 & Rain",
+      title: "Neural Network Type Classifier",
       category: "analysis",
       description:
-        "Used causal inference to explore if rain leads to higher DNFs in Formula 1 races.",
-      image: "/img/data/f1.jpg",
-      link: "https://github.com/SathvikKV/F1_Causal_Analysis/blob/main/002443505_Causality_Crash_Course_Written_Section.ipynb",
+        "Built a classifier to predict the likely NN architecture class for a dataset using discriminative features.",
+      image: "/img/data/cnn.png",
+      link: "https://github.com/SathvikKV/Neural_Network_Type_Classifier/blob/main/Neural_Network_Type_Classifier.ipynb",
     },
     {
       id: 3,
       title: "Video Game Sales & Causality",
       category: "analysis",
       description:
-        "Analyzed video game sales to explore causality relationships using Python.",
+        "Analyzed video game sales and explored causal relationships using Python.",
       image: "/img/data/vd.jpg",
       link: "https://github.com/SathvikKV/Video_Games_Sales_Causality/blob/main/002443505_Causality_Crash_Course_Worked_Example.ipynb",
     },
     {
       id: 4,
-      title: "Neural Network Type Classifier",
+      title: "Causality: F1 & Rain",
       category: "analysis",
       description:
-        "Built a classifier to predict the type of neural network given a dataset.",
-      image: "/img/data/cnn.png",
-      link: "https://github.com/SathvikKV/Neural_Network_Type_Classifier/blob/main/Neural_Network_Type_Classifier.ipynb",
+        "Causal inference to test whether rain increases DNFs in Formula 1 races.",
+      image: "/img/data/f1.jpg",
+      link: "https://github.com/SathvikKV/F1_Causal_Analysis/blob/main/002443505_Causality_Crash_Course_Written_Section.ipynb",
     },
     {
       id: 5,
-      title: "YouTube Virality - Data Understanding",
+      title: "YouTube Virality — Data Understanding",
       category: "analysis",
       description:
-        "Performed data understanding and feature exploration for YouTube virality prediction.",
+        "Feature exploration and data understanding for a virality prediction task.",
       image: "/img/data/yt.jpg",
       link: "https://github.com/SathvikKV/ML_YoutubeVirality/blob/main/Sathvik_Vadavatha_MachineLearningConcepts_UnderstandingData.ipynb",
     },
     {
-      id: 7,
+      id: 6,
       title: "Ocean Acidification Analysis",
       category: "analysis",
       description:
-        "Explored the impact of CO2 emissions on ocean acidification using environmental data.",
+        "Explored CO₂ emissions and their effect on ocean acidification using environmental datasets.",
       image: "/img/data/ocean.png",
       link: "https://github.com/SathvikKV/Ocean_Acidification/blob/main/Ocean_Acidification.ipynb",
     },
     {
-      id: 8,
+      id: 7,
       title: "Sales Dashboard (Power BI)",
       category: "visualization",
       description:
-        "Interactive Power BI dashboard analyzing quarterly sales by region.",
+        "Interactive dashboard analyzing quarterly sales by region and product line.",
       image: "/img/data/sales-dashboard.png",
       link: "#",
     },
     {
-      id: 9,
-      title: "Ocean CO2 Impact (Tableau)",
+      id: 8,
+      title: "Ocean CO₂ Impact (Tableau)",
       category: "visualization",
       description:
-        "Visualized Pacific Ocean acidification due to CO2 emissions using Tableau.",
+        "Visualized Pacific Ocean acidification trends relative to CO₂ emissions.",
       image: "/img/data/co2-viz.png",
       link: "#",
     },
   ];
+
+  const visible = dashboards.filter((d) => !d.draft);
 
   return (
     <section id="data-portfolio" className="py-20 relative bg-gray-950">
@@ -145,18 +186,16 @@ export default function DataDashboardPreview() {
             </div>
 
             <TabsContent value="all" className="mt-0">
-              <DashboardGrid items={dashboards} />
+              <DashboardGrid items={visible} />
             </TabsContent>
 
             <TabsContent value="analysis" className="mt-0">
-              <DashboardGrid
-                items={dashboards.filter((d) => d.category === "analysis")}
-              />
+              <DashboardGrid items={visible.filter((d) => d.category === "analysis")} />
             </TabsContent>
 
             <TabsContent value="visualization" className="mt-0">
               <DashboardGrid
-                items={dashboards.filter((d) => d.category === "visualization")}
+                items={visible.filter((d) => d.category === "visualization")}
               />
             </TabsContent>
           </Tabs>
@@ -166,7 +205,7 @@ export default function DataDashboardPreview() {
   );
 }
 
-function DashboardGrid({ items }: { items: any[] }) {
+function DashboardGrid({ items }: { items: DashItem[] }) {
   return (
     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {items.map((item, index) => (
@@ -178,7 +217,7 @@ function DashboardGrid({ items }: { items: any[] }) {
           transition={{ duration: 0.5, delay: 0.1 * index }}
         >
           <a
-            href={item.link}
+            href={item.link || "#"}
             target="_blank"
             rel="noopener noreferrer"
             className="block h-full"

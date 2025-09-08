@@ -18,6 +18,20 @@ interface WorkExperience {
 export default function WorkSection() {
   const experiences: WorkExperience[] = [
     {
+  company: "Triple Ring Technologies",
+  logo: "/img/projects/triple-ring.jpeg",
+  position: "Data Science Intern",
+  location: "Boston, MA (On-site)",
+  period: "Jun 2025 – Aug 2025",
+  responsibilities: [
+    "Architected and deployed Infrastructure as Code ML pipelines across AWS and GCP using Terraform and AWS Step Functions, enabling modular, configurable workflows for end-to-end training, deployment, and inference on medical datasets.",
+    "Engineered unified pipelines for time series and imaging data with automated preprocessing, windowing, and feature engineering at scale.",
+    "Built and deployed Random Forest based activity classification and intensity regression models for time series data, and image classification pipelines served via Amazon SageMaker real time endpoints.",
+    "Delivered comprehensive documentation and reusable templates that support regulatory alignment (FDA AI/ML guidelines), reproducibility, and future multi cloud extensibility."
+  ],
+},
+
+    {
       company: "ITC Infotech USA",
       logo: "/img/projects/itcinfotech.png",
       position: "Product Lifecycle Management Intern",
