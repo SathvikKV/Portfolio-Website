@@ -108,7 +108,7 @@ export default function AboutSection() {
           <p className="text-2xl md:text-3xl text-gray-300">
             a{" "}
             <Typewriter
-              words={["Student", "Data Scientist", "Data Analyst"]}
+              words={["Student", "Data Scientist", "Data Analyst","Machine Learning Engineer","AI Engineer"]}
               className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-red-500"
             />
           </p>
