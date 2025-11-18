@@ -18,11 +18,29 @@ type DashItem = {
 };
 
 export default function DataDashboardPreview() {
-  // NOTE:
-  // - First two items are placeholders (drafts) you asked for.
-  // - GANs is FIRST visible card, Neural Network Type Classifier is SECOND.
   const dashboards: DashItem[] = [
-    // -- PLACEHOLDER 1 (draft) ---------------------------------------------
+    // NEW LATEST NOTEBOOK 1
+    {
+      id: 102,
+      title: "Stock Price Direction Prediction (AMZN)",
+      category: "analysis",
+      description:
+        "Time-series classification project predicting next-day AMZN price direction (close vs. open) using OHLCV data from 1997–2020 with train/val/test splits and AUC as the key metric.",
+      image: "/img/data/amzn-stock-placeholder.png",
+      link: "#", // replace with your notebook / repo link
+    },
+    // NEW LATEST NOTEBOOK 2
+    {
+      id: 103,
+      title: "Keyword Detection on Medical Websites",
+      category: "analysis",
+      description:
+        "Built an NLP pipeline to detect cancer tumor board information in HTML pages using BeautifulSoup text extraction, feature engineering, and multi-class classification for tumor board relevance.",
+      image: "/img/data/tumorboard-placeholder.png",
+      link: "#", // replace with your notebook / repo link
+    },
+
+    // -- PLACEHOLDER 1 ---------------------------------------------
     {
       id: 100,
       draft: false, // flip to false when ready
@@ -34,7 +52,7 @@ export default function DataDashboardPreview() {
       link: "#", // add your repo / notebook link
       demo: "#", // optional
     },
-    // -- PLACEHOLDER 2 (draft) ---------------------------------------------
+    // -- PLACEHOLDER 2 ---------------------------------------------
     {
       id: 101,
       draft: false, // flip to false when ready
@@ -190,12 +208,16 @@ export default function DataDashboardPreview() {
             </TabsContent>
 
             <TabsContent value="analysis" className="mt-0">
-              <DashboardGrid items={visible.filter((d) => d.category === "analysis")} />
+              <DashboardGrid
+                items={visible.filter((d) => d.category === "analysis")}
+              />
             </TabsContent>
 
             <TabsContent value="visualization" className="mt-0">
               <DashboardGrid
-                items={visible.filter((d) => d.category === "visualization")}
+                items={visible.filter(
+                  (d) => d.category === "visualization"
+                )}
               />
             </TabsContent>
           </Tabs>

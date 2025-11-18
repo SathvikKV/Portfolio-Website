@@ -32,6 +32,42 @@ export default function ProjectsSection() {
       githubUrl: "https://github.com/SathvikKV/NutriGuardAI",
     },
     {
+      id: 11,
+      title: "Realtime Copilot: Visual AI Screen Assistant",
+      description:
+        "Developed a local, privacy-first realtime AI assistant that performs OCR, visual reasoning, screen-change summarization, and voice interaction. Built with Next.js, Express, and a Node-based AI worker using LiveKit for screen streaming.",
+      image: "/img/projects/realtime_copilot_placeholder.png", // placeholder path
+      category: "information-systems",
+      tags: [
+        "Next.js",
+        "Express",
+        "LiveKit",
+        "OCR",
+        "Vision",
+        "AI Worker",
+        "Docker",
+      ],
+      githubUrl:
+        "https://github.com/SathvikKV/realtime-copilot-placeholder", // placeholder
+    },
+    {
+      id: 12,
+      title: "Sampler: AI Music Discovery Feed",
+      description:
+        "Built an AI-powered, swipe-based music discovery engine with vertical tracks, Spotify integration, playlist creation, and explainable audio intelligence. Includes real-time feedback signals, session branching, and a full-stack architecture (Next.js + FastAPI + PostgreSQL).",
+      image: "/img/projects/sampler_placeholder.png", // placeholder path
+      category: "information-systems",
+      tags: [
+        "Next.js",
+        "FastAPI",
+        "PostgreSQL",
+        "Spotify API",
+        "Audio Intelligence",
+        "Docker",
+      ],
+      githubUrl: "https://github.com/SathvikKV/sampler-placeholder", // placeholder
+    },
+    {
       id: 3,
       title: "FinSight",
       description:
