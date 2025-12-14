@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -13,18 +14,21 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const isMobile = useMobile();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+
+      if (pathname !== "/") return;
 
       // Determine active section based on scroll position
       const sections = [
         "home",
         "about",
         "education",
-        "projects",
         "work",
+        "projects",
         "contact",
       ];
       for (const section of sections.reverse()) {
@@ -37,23 +41,33 @@ export default function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Initial check
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
+
+  useEffect(() => {
+    if (pathname.startsWith("/blog")) {
+      setActiveSection("blog");
+    } else if (pathname.startsWith("/projects")) {
+      setActiveSection("projects");
+    }
+  }, [pathname]);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Education", href: "#education" },
-    { name: "Work", href: "#work" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/#home" },
+    { name: "About", href: "/#about" },
+    { name: "Education", href: "/#education" },
+    { name: "Work", href: "/#work" },
+    { name: "Projects", href: "/#projects" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/#contact" },
   ];
 
   return (
     <header
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
-        isScrolled
+        isScrolled || pathname !== "/"
           ? "bg-black/80 backdrop-blur-md border-b border-orange-600/20 py-3"
           : "bg-transparent py-5"
       )}
@@ -91,7 +105,7 @@ export default function Navbar() {
                     href={link.href}
                     className={cn(
                       "text-lg font-medium py-2 transition-colors",
-                      activeSection === link.href.substring(1)
+                      activeSection === link.name.toLowerCase()
                         ? "text-orange-500"
                         : "text-white hover:text-orange-500"
                     )}
@@ -120,13 +134,13 @@ export default function Navbar() {
                 href={link.href}
                 className={cn(
                   "text-sm font-medium transition-colors relative",
-                  activeSection === link.href.substring(1)
+                  activeSection === link.name.toLowerCase()
                     ? "text-orange-500"
                     : "text-white hover:text-orange-500"
                 )}
               >
                 {link.name}
-                {activeSection === link.href.substring(1) && (
+                {activeSection === link.name.toLowerCase() && (
                   <motion.span
                     layoutId="activeSection"
                     className="absolute -bottom-1 left-0 right-0 h-0.5 bg-orange-500"
