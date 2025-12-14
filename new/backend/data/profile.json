@@ -1,0 +1,113 @@
+{
+  "name": "Sathvik Vadavatha",
+  "location": "Boston, MA",
+  "email": "vadavatha.s@northeastern.edu",
+  "phone": "217-305-5622",
+  "summary": "I’m a data-driven problem solver with a hybrid background in Information Systems and Mechanical Engineering. With hands-on experience in Data Science, Generative AI, and end-to-end ML pipelines, I build solutions that merge analytical thinking with scalable systems.",
+  "skills": [
+    "Python", "Java", "R", "Pandas", "NumPy", "TensorFlow", "Keras", "Seaborn", "Tableau",
+    "Excel", "Power BI", "Streamlit", "React", "Vue.js", "HTML", "CSS", "AWS", "GCP",
+    "Azure", "Docker", "Airflow", "Git", "SQL", "PostgreSQL", "Snowflake", "MongoDB",
+    "Hadoop", "PTC Windchill", "LangChain", "LangGraph", "Jira", "Probability", "Statistics",
+    "Time Series Forecasting", "SolidWorks", "AutoCAD", "MATLAB", "LabVIEW"
+  ],
+  "experience": [
+    {
+      "title": "Product Lifecycle Management Intern",
+      "company": "ITC Infotech USA",
+      "location": "Frederick, MD",
+      "duration": "Sept 2022 – Oct 2023",
+      "highlights": [
+        "Developed and executed test cases for PTC Windchill, validating data workflows and system functionality.",
+        "Managed and structured 3D model data, ensuring version control, revision tracking, and change management.",
+        "Configured Windchill based on business needs, optimizing data/document workflows with custom attributes and naming conventions."
+      ]
+    },
+    {
+      "title": "Data Analyst Intern",
+      "company": "ITC Ltd (Paperboards and Specialty Papers Division)",
+      "location": "Hyderabad, India",
+      "duration": "Jun 2021 – Aug 2021",
+      "highlights": [
+        "Conducted process analysis using lean methodologies and statistical tools to identify inefficiencies.",
+        "Built a Tableau dashboard to track downtime and production, reducing machine downtime by 12%.",
+        "Calibrated IoT proximity sensors to enhance forklift safety through real-time feedback."
+      ]
+    },
+    {
+      "title": "Process Consultant Intern",
+      "company": "Dassault Systems",
+      "location": "Bangalore, India",
+      "duration": "May 2020 – Jul 2020",
+      "highlights": [
+        "Optimized manufacturing workflows using Dassault’s 3D software tools.",
+        "Created reports to support client decision-making and digital transformation strategies."
+      ]
+    },
+    {
+      "title": "Engineering Intern",
+      "company": "Universal Robots A/S",
+      "location": "India",
+      "duration": "Jun 2019 – Jul 2019",
+      "highlights": [
+        "Designed and installed automation using UR10 collaborative robots.",
+        "Automated 80% of tasks across 3 industrial stations, improving throughput.",
+        "Deployed palletizing solution with minimal manual intervention."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Reddit Cryptocurrency Sentiment Pipeline",
+      "description": "Built a Python pipeline using PRAW & Pushshift to extract and analyze Reddit posts from crypto threads. Applied sentiment models and visualized time-series trends.",
+      "tags": ["Python", "PRAW", "Pushshift", "Sentiment Analysis", "MongoDB"]
+    },
+    {
+      "title": "AI-Powered Multimodal Travel Guide",
+      "description": "Created a travel assistant that uses LangChain agents and image-to-text recognition to fetch flights, activities, and weather. Built with FastAPI, Streamlit, and deployed on AWS.",
+      "tags": ["LangChain", "FastAPI", "Streamlit", "OpenAI", "Image Captioning"]
+    },
+    {
+      "title": "PDF Extraction and Query System (RAG)",
+      "description": "Engineered a document extraction and summarization tool using Adobe API, Airflow, and vector databases. Enabled querying using Retrieval-Augmented Generation (RAG).",
+      "tags": ["Streamlit", "Adobe API", "Airflow", "OpenAI", "RAG", "Docker", "AWS"]
+    },
+    {
+      "title": "Bitcoin Price Analysis & Trend Prediction",
+      "description": "Analyzed Bitcoin historical prices with ARIMA models and K-means clustering to forecast future movement.",
+      "tags": ["Python", "ARIMA", "K-means", "Data Analysis"]
+    },
+    {
+      "title": "Ultra-Fast Grocery Delivery Platform",
+      "description": "Designed a real-time delivery system using Java, MySQL, and Google Maps API to manage 10-minute grocery delivery with data visualization and order insights.",
+      "tags": ["Java", "MySQL", "Google Maps API", "Delivery", "Analytics"]
+    },
+    {
+      "title": "TED Talks Exploration Platform",
+      "description": "Built an RAG-based research tool using CoPilotKit UI and OpenAI for intelligent TED Talk discovery and knowledge extraction.",
+      "tags": ["RAG", "LangChain", "FastAPI", "CopilotKit", "TED Talks"]
+    }
+  ],
+  "education": [
+    {
+      "degree": "MS in Information Systems",
+      "university": "Northeastern University",
+      "location": "Boston, MA",
+      "duration": "2024 - 2025",
+      "highlights": [
+        "Focused on Big Data, ML, Generative AI, and Business Intelligence.",
+        "Courses: Data Science Engineering, DBMS, Big Data, GenAI"
+      ]
+    },
+    {
+      "degree": "BS in Mechanical Engineering",
+      "university": "University of Illinois at Urbana-Champaign",
+      "location": "Champaign, IL",
+      "duration": "2018 - 2022",
+      "highlights": [
+        "Honors in robotics applications and mechanical design.",
+        "Courses: CAD/CAM, Robotics, Manufacturing, Automation"
+      ]
+    }
+  ]
+}
