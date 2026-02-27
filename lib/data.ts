@@ -59,6 +59,179 @@ export const projects: Project[] = [
         featured: true,
     },
     {
+        id: 13,
+        title: "Resin Manufacturing LIMS",
+        slug: "resin-lims",
+        description:
+            "A comprehensive Laboratory Information Management System (LIMS) for resin manufacturing operations, managing lab units and R&D tracking.",
+        longDescription:
+            "This system manages the complete lifecycle of resin batch production, quality testing, and R&D experimentation. It features multi-unit operations support, a financial year-based sequential batch numbering system, quality control validation, and an extensive R&D module for tracking projects, experiments, and tasks. A dynamic KPI dashboard provides real-time metrics for production and team performance.",
+        challenges: [
+            "Managing complex organizational hierarchies and multi-unit production facilities.",
+            "Implementing an automated Financial Year-based sequential batch numbering system.",
+            "Building a robust audit trail for all batch operations and draft-to-approval workflows.",
+        ],
+        solutions: [
+            "Developed a structured Next.js 16 frontend and FastAPI backend with PostgreSQL for complex relational data.",
+            "Used Celery for background tasks and MinIO for file storage of reports and testing collateral.",
+            "Created an extensive R&D module mapping high-level projects down to specific executable tasks.",
+        ],
+        techStackDetailed: [
+            { category: "Frontend", technologies: ["Next.js 16", "TypeScript", "Tailwind CSS"] },
+            { category: "Backend", technologies: ["FastAPI", "PostgreSQL", "SQLAlchemy"] },
+            { category: "Infrastructure", technologies: ["Docker", "Celery", "MinIO"] },
+        ],
+        image: "",
+        category: "information-systems",
+        tags: ["FastAPI", "Next.js", "PostgreSQL", "Docker", "Celery"],
+        featured: true,
+    },
+    {
+        id: 14,
+        title: "CAD AI",
+        slug: "cad-ai",
+        description:
+            "An AI-powered tool leveraging GPT-4o and FreeCAD to generate and modify 3D models using natural language prompts.",
+        longDescription:
+            "CAD AI bridges the gap between natural language descriptions and precise 3D geometry. By utilizing OpenAI's GPT-4o for spatial reasoning and planning, and FreeCAD for deterministic geometry generation, users can create STLs and STEP files conversationally. The platform features an interactive Three.js viewer for real-time model inspection and an iterative editing workflow.",
+        challenges: [
+            "Translating ambiguous natural language into deterministic geometric constraints.",
+            "Integrating a headless FreeCAD environment with a web-based FastAPI backend.",
+            "Rendering complex generated 3D models interactively in the browser.",
+        ],
+        solutions: [
+            "Designed a robust prompt engineering pipeline for GPT-4o to output structured FreeCAD Python scripts.",
+            "Built a seamless Next.js frontend with React Three Fiber/Three.js to visualize the generated outputs instantly.",
+            "Implemented a conversational editing loop allowing users to refine the model step-by-step.",
+        ],
+        techStackDetailed: [
+            { category: "Frontend", technologies: ["Next.js", "React", "Three.js"] },
+            { category: "Backend", technologies: ["FastAPI", "Python", "FreeCAD"] },
+            { category: "AI", technologies: ["OpenAI GPT-4o"] },
+        ],
+        image: "/img/projects/cadai.png",
+        category: "information-systems",
+        tags: ["GPT-4o", "FreeCAD", "FastAPI", "Next.js", "Three.js"],
+        githubUrl: "https://github.com/SathvikKV/cadai",
+        featured: true,
+    },
+    {
+        id: 15,
+        title: "MovieMeter",
+        slug: "moviemeter",
+        description:
+            "An AI-powered movie analytics platform that predicts Oscar potential and measures audience trust gaps using Snowflake.",
+        longDescription:
+            "MovieMeter tracks and analyzes cinematic data ingested from TMDB, Rotten Tomatoes, and Letterboxd via an Airflow-orchestrated Snowflake data pipeline. It features an 'Oscar Bait Predictor' powered by LightGBM and NLP, quantifies creative risk scores based on budget/genre patterns, and tracks social hype decay post-release. The platform identifies 'Trust Gaps' between critic scores and audience reception.",
+        challenges: [
+            "Ingesting and normalizing unstructured review data from multiple disparate sources.",
+            "Building a predictive Machine Learning model accurately estimating awards potential from metadata.",
+            "Orchestrating a reliable weekly data pipeline into a Snowflake data warehouse.",
+        ],
+        solutions: [
+            "Implemented a Medallion architecture (Raw -> Clean -> Serve) in Snowflake using Apache Airflow.",
+            "Trained a LightGBM classifier alongside TextBlob sentiment analysis for the ML features.",
+            "Served the insights via a high-performance Next.js 14 and FastAPI web dashboard.",
+        ],
+        techStackDetailed: [
+            { category: "Frontend", technologies: ["Next.js 14", "Tailwind CSS", "Shadcn UI"] },
+            { category: "Backend & Data", technologies: ["FastAPI", "Snowflake", "Apache Airflow"] },
+            { category: "Machine Learning", technologies: ["Scikit-Learn", "LightGBM", "TextBlob"] },
+        ],
+        image: "/img/projects/moviemeter.png",
+        category: "information-systems",
+        tags: ["Snowflake", "Airflow", "Machine Learning", "FastAPI", "Next.js"],
+        githubUrl: "https://github.com/SathvikKV/moviemeter",
+        featured: true,
+    },
+    {
+        id: 16,
+        title: "NimbusBill",
+        slug: "nimbusbill",
+        description:
+            "A warehouse-native, usage-based billing engine built on a Snowflake Medallion architecture orchestrated by Airflow.",
+        longDescription:
+            "NimbusBill treats the Data Warehouse as the core billing engine. Raw usage telemetry events flow through a Medallion Architecture where metered pricing is applied via SQL entirely inside Snowflake. The system features idempotency via MERGE functions, SCD Type 2 dimension tracking for pricing changes, and automated late generation reconciliation for events arriving after an invoice is issued.",
+        challenges: [
+            "Guaranteeing idempotent data ingestion without creating duplicate billing events.",
+            "Handling historical changes to customers and pricing rates safely.",
+            "Reconciling late-arriving telemetry events after invoices have already been generated.",
+        ],
+        solutions: [
+            "Utilized Snowflake MERGE commands and SCD Type 2 dimensions (EFFECTIVE_START/END).",
+            "Orchestrated daily, monthly-close, and late-arrival cron DAGs via Apache Airflow.",
+            "Built a Next.js billing dashboard connected securely to Snowflake via a FastAPI Rest API.",
+        ],
+        techStackDetailed: [
+            { category: "Frontend", technologies: ["Next.js", "Tailwind CSS"] },
+            { category: "Orchestration", technologies: ["Apache Airflow 2.7", "Docker Compose"] },
+            { category: "Data & Backend", technologies: ["Snowflake", "FastAPI", "Pydantic"] },
+        ],
+        image: "/img/projects/nimbus1.png",
+        category: "information-systems",
+        tags: ["Snowflake", "Airflow", "FastAPI", "Next.js", "Data Engineering"],
+        githubUrl: "https://github.com/SathvikKV/NimbusBill",
+        featured: true,
+    },
+    {
+        id: 17,
+        title: "Shakespearean Sonnet Generator",
+        slug: "sonnet-generator",
+        description:
+            "A comparative deep learning analysis generating Shakespearean sonnets using both Diffusion Models and Autoregressive Transformers.",
+        longDescription:
+            "This NLP research project explores two fundamentally different deep learning architectures for creative text generation. It contrasts an emerging Text Diffusion Model—diffusing BERT embeddings in a continuous latent space processed via a 1D U-Net—against a classic, from-scratch Autoregressive Encoder-Decoder Transformer. The study deeply analyzes the structural coherence, vocabulary quality, and decoding challenges of continuous latent vectors versus discrete autoregressive token sampling.",
+        challenges: [
+            "Decoding continuous latent vectors back into discrete text tokens for the diffusion model.",
+            "Capturing long-range poetic dependencies and structural rhymes within the sonnet format.",
+            "Implementing complex Transformer and U-Net architectures entirely from scratch.",
+        ],
+        solutions: [
+            "Utilized Parts-of-Sentence (POS) conditioning to guide the diffusion process.",
+            "Implemented a custom Multi-Head Attention mechanism to track long-range context.",
+            "Compared PyTorch (Diffusion) and TensorFlow (Transformer) frameworks side-by-side to evaluate architectural trade-offs.",
+        ],
+        techStackDetailed: [
+            { category: "Diffusion", technologies: ["PyTorch", "1D U-Net", "BERT Embeddings"] },
+            { category: "Transformer", technologies: ["TensorFlow", "Multi-Head Attention"] },
+            { category: "Domain", technologies: ["Natural Language Processing", "Generative AI"] },
+        ],
+        image: "/img/projects/shakespeare.png",
+        category: "information-systems",
+        tags: ["PyTorch", "TensorFlow", "Transformers", "Diffusion Models", "NLP"],
+        githubUrl: "https://github.com/SathvikKV/Transformer_vs_Diffusion_Shakespeare_Sonnet_Generator/blob/main/FinalProject_Team4.ipynb",
+        featured: true,
+    },
+    {
+        id: 18,
+        title: "Multi-Modal Terrain Classification",
+        slug: "terrain-classification",
+        description:
+            "A highly parallelized pipeline classifying off-road terrain roughness using synchronized multi-modal sensor and RGB image data.",
+        longDescription:
+            "Developed for autonomous vehicle navigation, this high-performance system categorizes terrain roughness by fusing high-frequency IMU/GPS data with visual scenery. The pipeline processes ~28GB of data efficiently through mass parallelization. Sensor data is processed via Dask and multiprocessing (CPU), while 7,068 image embeddings are extracted using a ResNet18 model distributed across GPUs via PyTorch DDP. The final classification utilizes a Deep MLP fusion network.",
+        challenges: [
+            "Handling massive, highly synchronous multi-modal datasets effectively.",
+            "Overcoming CPU shared memory contention and maximizing GPU utilization.",
+            "Balancing the recall of 'Rough' terrain to prioritize autonomous vehicle safety.",
+        ],
+        solutions: [
+            "Achieved a 6.7x speedup in data alignment using 16-worker multiprocessing.",
+            "Implemented DistributedDataParallel (DDP) for image extraction, reducing time from 771s to 195s.",
+            "Demonstrated that a deep class-weighted MLP fusion model outperformed Random Forest baselines by significantly increasing critical terrain recall.",
+        ],
+        techStackDetailed: [
+            { category: "Parallel Computing", technologies: ["PyTorch DDP", "Dask", "Joblib"] },
+            { category: "Deep Learning", technologies: ["Torchvision (ResNet18)", "MLP Fusion"] },
+            { category: "Data Science", technologies: ["Pandas", "Scikit-Learn"] },
+        ],
+        image: "/img/projects/terrain.png",
+        category: "information-systems",
+        featured: true,
+        tags: ["PyTorch DDP", "Dask", "Computer Vision", "Parallel Computing", "Sensor Fusion"],
+        githubUrl: "https://github.com/SathvikKV/Parallel-Multi-Modal-Terrain-Roughness-Classification/blob/main/Final_Project_Team11_Notebook.ipynb",
+    },
+    {
         id: 12,
         title: "Realtime Copilot",
         slug: "realtime-copilot",
