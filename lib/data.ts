@@ -64,8 +64,16 @@ export const projects: Project[] = [
         slug: "txsentry",
         description: "Real-Time Fraud Detection & Autonomous Investigation System. Built a large-scale fraud detection platform processing 10M+ financial transactions using a hybrid ML and agentic architecture.",
         longDescription: "Engineered a multi-model detection pipeline combining LightGBM (0.994 PR-AUC), Isolation Forest, and graph-based anomaly detection (NetworkX), enhanced with SHAP explainability for transparent decision-making. Designed an autonomous investigation system using LangGraph, where agents dynamically plan and execute tool calls (via MCP) to analyze transaction patterns, graph relationships, and behavioral signals, producing structured case memos. Implemented a modular system supporting real-time alert triage, graph analysis, and autonomous reasoning, reducing manual investigation effort and enabling scalable fraud operations.",
-        challenges: [],
-        solutions: [],
+        challenges: [
+            "Processing over 10M financial transactions in a high-scale environment with strict latency.",
+            "Handling fraud drift and detecting behavioral anomalies without prior labels.",
+            "Bridging the gap between an LLM reasoning agent and massive data lake resources."
+        ],
+        solutions: [
+            "Utilized a multi-model approach with LightGBM and Isolation Forest for robust detection.",
+            "Deployed a stateful LangGraph agent for autonomous investigation, replacing manual triage.",
+            "Built an MCP Tool Server exposing 11 specialized tools for transaction, relationship, and risk analysis."
+        ],
         techStackDetailed: [
             { category: "Machine Learning", technologies: ["LightGBM", "Isolation Forest", "SHAP"] },
             { category: "Agentic AI", technologies: ["LangGraph", "FastAPI"] },
@@ -112,8 +120,16 @@ export const projects: Project[] = [
         slug: "pitwall-live",
         description: "AI-Powered F1 Race Strategy Assistant. Developed a real-time AI-powered race engineer dashboard that enables multimodal interaction with live Formula 1 telemetry data.",
         longDescription: "Built a multimodal agent using Gemini Live API that processes live telemetry streams and executes strategic tools (e.g., pit projections, undercut estimation, strategy recommendations) through a FastAPI backend. Designed a low-latency architecture with Next.js frontend, Redis caching for high-frequency telemetry, and WebRTC-based audio interaction, enabling real-time conversational analysis of race scenarios. Integrated external data sources (FastF1/OpenF1, Wikipedia) and deployed the system on Google Cloud using Terraform and Cloud Run for scalable, serverless operation.",
-        challenges: [],
-        solutions: [],
+        challenges: [
+            "Synchronizing live voice requests with real-time NDJSON telemetry simulations.",
+            "Normalizing GPS data across multiple years (2024 vs 2025) for pixel-perfect track mapping.",
+            "Preventing the LLM from 'reading out' raw tool JSON coordinates conversationally."
+        ],
+        solutions: [
+            "Built a custom interruptible sleep system in FastAPI to synchronize simulations with voice.",
+            "Leveraged Gemini 2.5 Live API and Redis for high-speed state management and instant lap seeking.",
+            "Designed aggressive prompting strategies to enforce natural language tool execution."
+        ],
         techStackDetailed: [
             { category: "Frontend", technologies: ["Next.js", "WebRTC"] },
             { category: "Backend", technologies: ["FastAPI", "Redis", "Terraform", "Google Cloud"] },
@@ -213,7 +229,7 @@ export const projects: Project[] = [
             { category: "Backend", technologies: ["FastAPI", "PostgreSQL", "SQLAlchemy"] },
             { category: "Infrastructure", technologies: ["Docker", "Celery", "MinIO"] },
         ],
-        image: "/placeholder.svg",
+        image: "/gradient-placeholder.svg",
         category: "information-systems",
         tags: ["FastAPI", "Next.js", "PostgreSQL", "Docker", "Celery"],
         featured: true,
@@ -270,7 +286,7 @@ export const projects: Project[] = [
             { category: "Transformer", technologies: ["TensorFlow", "Multi-Head Attention"] },
             { category: "Domain", technologies: ["Natural Language Processing", "Generative AI"] },
         ],
-        image: "/placeholder.svg",
+        image: "/img/projects/shakespeare.png",
         category: "information-systems",
         tags: ["PyTorch", "TensorFlow", "Transformers", "Diffusion Models", "NLP"],
         githubUrl: "https://github.com/SathvikKV/Transformer_vs_Diffusion_Shakespeare_Sonnet_Generator/blob/main/FinalProject_Team4.ipynb",
@@ -299,7 +315,7 @@ export const projects: Project[] = [
             { category: "Deep Learning", technologies: ["Torchvision (ResNet18)", "MLP Fusion"] },
             { category: "Data Science", technologies: ["Pandas", "Scikit-Learn"] },
         ],
-        image: "/placeholder.svg",
+        image: "/gradient-placeholder.svg",
         category: "information-systems",
         featured: true,
         tags: ["PyTorch DDP", "Dask", "Computer Vision", "Parallel Computing", "Sensor Fusion"],
@@ -451,7 +467,7 @@ export const projects: Project[] = [
             { category: "Database", technologies: ["Snowflake", "S3"] },
             { category: "App", technologies: ["FastAPI", "Streamlit"] },
         ],
-        image: "/placeholder.svg",
+        image: "/gradient-placeholder.svg",
         category: "information-systems",
         tags: ["Python", "Airflow", "FastAPI", "Snowflake"],
         githubUrl: "https://github.com/BigDataIA-Fall2024-TeamB8/Assignment-2",
