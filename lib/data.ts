@@ -59,89 +59,22 @@ export const projects: Project[] = [
         featured: true,
     },
     {
-        id: 13,
-        title: "Resin Manufacturing LIMS",
-        slug: "resin-lims",
-        description:
-            "A comprehensive Laboratory Information Management System (LIMS) for resin manufacturing operations, managing lab units and R&D tracking.",
-        longDescription:
-            "This system manages the complete lifecycle of resin batch production, quality testing, and R&D experimentation. It features multi-unit operations support, a financial year-based sequential batch numbering system, quality control validation, and an extensive R&D module for tracking projects, experiments, and tasks. A dynamic KPI dashboard provides real-time metrics for production and team performance.",
-        challenges: [
-            "Managing complex organizational hierarchies and multi-unit production facilities.",
-            "Implementing an automated Financial Year-based sequential batch numbering system.",
-            "Building a robust audit trail for all batch operations and draft-to-approval workflows.",
-        ],
-        solutions: [
-            "Developed a structured Next.js 16 frontend and FastAPI backend with PostgreSQL for complex relational data.",
-            "Used Celery for background tasks and MinIO for file storage of reports and testing collateral.",
-            "Created an extensive R&D module mapping high-level projects down to specific executable tasks.",
-        ],
+        id: 19,
+        title: "TxSentry",
+        slug: "txsentry",
+        description: "Real-Time Fraud Detection & Autonomous Investigation System. Built a large-scale fraud detection platform processing 10M+ financial transactions using a hybrid ML and agentic architecture.",
+        longDescription: "Engineered a multi-model detection pipeline combining LightGBM (0.994 PR-AUC), Isolation Forest, and graph-based anomaly detection (NetworkX), enhanced with SHAP explainability for transparent decision-making. Designed an autonomous investigation system using LangGraph, where agents dynamically plan and execute tool calls (via MCP) to analyze transaction patterns, graph relationships, and behavioral signals, producing structured case memos. Implemented a modular system supporting real-time alert triage, graph analysis, and autonomous reasoning, reducing manual investigation effort and enabling scalable fraud operations.",
+        challenges: [],
+        solutions: [],
         techStackDetailed: [
-            { category: "Frontend", technologies: ["Next.js 16", "TypeScript", "Tailwind CSS"] },
-            { category: "Backend", technologies: ["FastAPI", "PostgreSQL", "SQLAlchemy"] },
-            { category: "Infrastructure", technologies: ["Docker", "Celery", "MinIO"] },
+            { category: "Machine Learning", technologies: ["LightGBM", "Isolation Forest", "SHAP"] },
+            { category: "Agentic AI", technologies: ["LangGraph", "FastAPI"] },
+            { category: "Data Engineering", technologies: ["PySpark", "Graph Analytics"] }
         ],
-        image: "",
+        image: "/img/projects/tx_1.PNG",
         category: "information-systems",
-        tags: ["FastAPI", "Next.js", "PostgreSQL", "Docker", "Celery"],
-        featured: true,
-    },
-    {
-        id: 14,
-        title: "CAD AI",
-        slug: "cad-ai",
-        description:
-            "An AI-powered tool leveraging GPT-4o and FreeCAD to generate and modify 3D models using natural language prompts.",
-        longDescription:
-            "CAD AI bridges the gap between natural language descriptions and precise 3D geometry. By utilizing OpenAI's GPT-4o for spatial reasoning and planning, and FreeCAD for deterministic geometry generation, users can create STLs and STEP files conversationally. The platform features an interactive Three.js viewer for real-time model inspection and an iterative editing workflow.",
-        challenges: [
-            "Translating ambiguous natural language into deterministic geometric constraints.",
-            "Integrating a headless FreeCAD environment with a web-based FastAPI backend.",
-            "Rendering complex generated 3D models interactively in the browser.",
-        ],
-        solutions: [
-            "Designed a robust prompt engineering pipeline for GPT-4o to output structured FreeCAD Python scripts.",
-            "Built a seamless Next.js frontend with React Three Fiber/Three.js to visualize the generated outputs instantly.",
-            "Implemented a conversational editing loop allowing users to refine the model step-by-step.",
-        ],
-        techStackDetailed: [
-            { category: "Frontend", technologies: ["Next.js", "React", "Three.js"] },
-            { category: "Backend", technologies: ["FastAPI", "Python", "FreeCAD"] },
-            { category: "AI", technologies: ["OpenAI GPT-4o"] },
-        ],
-        image: "/img/projects/cadai.png",
-        category: "information-systems",
-        tags: ["GPT-4o", "FreeCAD", "FastAPI", "Next.js", "Three.js"],
-        githubUrl: "https://github.com/SathvikKV/cadai",
-        featured: true,
-    },
-    {
-        id: 15,
-        title: "MovieMeter",
-        slug: "moviemeter",
-        description:
-            "An AI-powered movie analytics platform that predicts Oscar potential and measures audience trust gaps using Snowflake.",
-        longDescription:
-            "MovieMeter tracks and analyzes cinematic data ingested from TMDB, Rotten Tomatoes, and Letterboxd via an Airflow-orchestrated Snowflake data pipeline. It features an 'Oscar Bait Predictor' powered by LightGBM and NLP, quantifies creative risk scores based on budget/genre patterns, and tracks social hype decay post-release. The platform identifies 'Trust Gaps' between critic scores and audience reception.",
-        challenges: [
-            "Ingesting and normalizing unstructured review data from multiple disparate sources.",
-            "Building a predictive Machine Learning model accurately estimating awards potential from metadata.",
-            "Orchestrating a reliable weekly data pipeline into a Snowflake data warehouse.",
-        ],
-        solutions: [
-            "Implemented a Medallion architecture (Raw -> Clean -> Serve) in Snowflake using Apache Airflow.",
-            "Trained a LightGBM classifier alongside TextBlob sentiment analysis for the ML features.",
-            "Served the insights via a high-performance Next.js 14 and FastAPI web dashboard.",
-        ],
-        techStackDetailed: [
-            { category: "Frontend", technologies: ["Next.js 14", "Tailwind CSS", "Shadcn UI"] },
-            { category: "Backend & Data", technologies: ["FastAPI", "Snowflake", "Apache Airflow"] },
-            { category: "Machine Learning", technologies: ["Scikit-Learn", "LightGBM", "TextBlob"] },
-        ],
-        image: "/img/projects/moviemeter.png",
-        category: "information-systems",
-        tags: ["Snowflake", "Airflow", "Machine Learning", "FastAPI", "Next.js"],
-        githubUrl: "https://github.com/SathvikKV/moviemeter",
+        tags: ["Machine Learning", "LangGraph", "PySpark", "Graph Analytics", "SHAP", "FastAPI"],
+        githubUrl: "https://github.com/SathvikKV/TxSentry",
         featured: true,
     },
     {
@@ -174,62 +107,52 @@ export const projects: Project[] = [
         featured: true,
     },
     {
-        id: 17,
-        title: "Shakespearean Sonnet Generator",
-        slug: "sonnet-generator",
-        description:
-            "A comparative deep learning analysis generating Shakespearean sonnets using both Diffusion Models and Autoregressive Transformers.",
-        longDescription:
-            "This NLP research project explores two fundamentally different deep learning architectures for creative text generation. It contrasts an emerging Text Diffusion Model—diffusing BERT embeddings in a continuous latent space processed via a 1D U-Net—against a classic, from-scratch Autoregressive Encoder-Decoder Transformer. The study deeply analyzes the structural coherence, vocabulary quality, and decoding challenges of continuous latent vectors versus discrete autoregressive token sampling.",
-        challenges: [
-            "Decoding continuous latent vectors back into discrete text tokens for the diffusion model.",
-            "Capturing long-range poetic dependencies and structural rhymes within the sonnet format.",
-            "Implementing complex Transformer and U-Net architectures entirely from scratch.",
-        ],
-        solutions: [
-            "Utilized Parts-of-Sentence (POS) conditioning to guide the diffusion process.",
-            "Implemented a custom Multi-Head Attention mechanism to track long-range context.",
-            "Compared PyTorch (Diffusion) and TensorFlow (Transformer) frameworks side-by-side to evaluate architectural trade-offs.",
-        ],
+        id: 20,
+        title: "PitWall Live",
+        slug: "pitwall-live",
+        description: "AI-Powered F1 Race Strategy Assistant. Developed a real-time AI-powered race engineer dashboard that enables multimodal interaction with live Formula 1 telemetry data.",
+        longDescription: "Built a multimodal agent using Gemini Live API that processes live telemetry streams and executes strategic tools (e.g., pit projections, undercut estimation, strategy recommendations) through a FastAPI backend. Designed a low-latency architecture with Next.js frontend, Redis caching for high-frequency telemetry, and WebRTC-based audio interaction, enabling real-time conversational analysis of race scenarios. Integrated external data sources (FastF1/OpenF1, Wikipedia) and deployed the system on Google Cloud using Terraform and Cloud Run for scalable, serverless operation.",
+        challenges: [],
+        solutions: [],
         techStackDetailed: [
-            { category: "Diffusion", technologies: ["PyTorch", "1D U-Net", "BERT Embeddings"] },
-            { category: "Transformer", technologies: ["TensorFlow", "Multi-Head Attention"] },
-            { category: "Domain", technologies: ["Natural Language Processing", "Generative AI"] },
+            { category: "Frontend", technologies: ["Next.js", "WebRTC"] },
+            { category: "Backend", technologies: ["FastAPI", "Redis", "Terraform", "Google Cloud"] },
+            { category: "AI", technologies: ["Gemini Live API"] }
         ],
-        image: "/img/projects/shakespeare.png",
+        image: "/img/projects/pitwall.png",
         category: "information-systems",
-        tags: ["PyTorch", "TensorFlow", "Transformers", "Diffusion Models", "NLP"],
-        githubUrl: "https://github.com/SathvikKV/Transformer_vs_Diffusion_Shakespeare_Sonnet_Generator/blob/main/FinalProject_Team4.ipynb",
+        tags: ["Gemini Live API", "Next.js", "FastAPI", "Redis", "WebRTC", "Google Cloud", "Terraform"],
+        githubUrl: "https://github.com/SathvikKV/PitWall-F1Engine",
         featured: true,
     },
     {
-        id: 18,
-        title: "Multi-Modal Terrain Classification",
-        slug: "terrain-classification",
+        id: 15,
+        title: "MovieMeter",
+        slug: "moviemeter",
         description:
-            "A highly parallelized pipeline classifying off-road terrain roughness using synchronized multi-modal sensor and RGB image data.",
+            "An AI-powered movie analytics platform that predicts Oscar potential and measures audience trust gaps using Snowflake.",
         longDescription:
-            "Developed for autonomous vehicle navigation, this high-performance system categorizes terrain roughness by fusing high-frequency IMU/GPS data with visual scenery. The pipeline processes ~28GB of data efficiently through mass parallelization. Sensor data is processed via Dask and multiprocessing (CPU), while 7,068 image embeddings are extracted using a ResNet18 model distributed across GPUs via PyTorch DDP. The final classification utilizes a Deep MLP fusion network.",
+            "MovieMeter tracks and analyzes cinematic data ingested from TMDB, Rotten Tomatoes, and Letterboxd via an Airflow-orchestrated Snowflake data pipeline. It features an 'Oscar Bait Predictor' powered by LightGBM and NLP, quantifies creative risk scores based on budget/genre patterns, and tracks social hype decay post-release. The platform identifies 'Trust Gaps' between critic scores and audience reception.",
         challenges: [
-            "Handling massive, highly synchronous multi-modal datasets effectively.",
-            "Overcoming CPU shared memory contention and maximizing GPU utilization.",
-            "Balancing the recall of 'Rough' terrain to prioritize autonomous vehicle safety.",
+            "Ingesting and normalizing unstructured review data from multiple disparate sources.",
+            "Building a predictive Machine Learning model accurately estimating awards potential from metadata.",
+            "Orchestrating a reliable weekly data pipeline into a Snowflake data warehouse.",
         ],
         solutions: [
-            "Achieved a 6.7x speedup in data alignment using 16-worker multiprocessing.",
-            "Implemented DistributedDataParallel (DDP) for image extraction, reducing time from 771s to 195s.",
-            "Demonstrated that a deep class-weighted MLP fusion model outperformed Random Forest baselines by significantly increasing critical terrain recall.",
+            "Implemented a Medallion architecture (Raw -> Clean -> Serve) in Snowflake using Apache Airflow.",
+            "Trained a LightGBM classifier alongside TextBlob sentiment analysis for the ML features.",
+            "Served the insights via a high-performance Next.js 14 and FastAPI web dashboard.",
         ],
         techStackDetailed: [
-            { category: "Parallel Computing", technologies: ["PyTorch DDP", "Dask", "Joblib"] },
-            { category: "Deep Learning", technologies: ["Torchvision (ResNet18)", "MLP Fusion"] },
-            { category: "Data Science", technologies: ["Pandas", "Scikit-Learn"] },
+            { category: "Frontend", technologies: ["Next.js 14", "Tailwind CSS", "Shadcn UI"] },
+            { category: "Backend & Data", technologies: ["FastAPI", "Snowflake", "Apache Airflow"] },
+            { category: "Machine Learning", technologies: ["Scikit-Learn", "LightGBM", "TextBlob"] },
         ],
-        image: "/img/projects/terrain.png",
+        image: "/img/projects/moviemeter.png",
         category: "information-systems",
+        tags: ["Snowflake", "Airflow", "Machine Learning", "FastAPI", "Next.js"],
+        githubUrl: "https://github.com/SathvikKV/moviemeter",
         featured: true,
-        tags: ["PyTorch DDP", "Dask", "Computer Vision", "Parallel Computing", "Sensor Fusion"],
-        githubUrl: "https://github.com/SathvikKV/Parallel-Multi-Modal-Terrain-Roughness-Classification/blob/main/Final_Project_Team11_Notebook.ipynb",
     },
     {
         id: 12,
@@ -266,6 +189,121 @@ export const projects: Project[] = [
         ],
         githubUrl: "https://github.com/SathvikKV/realtime-copilot",
         featured: true,
+    },
+    {
+        id: 13,
+        title: "Resin Manufacturing LIMS",
+        slug: "resin-lims",
+        description:
+            "A comprehensive Laboratory Information Management System (LIMS) for resin manufacturing operations, managing lab units and R&D tracking.",
+        longDescription:
+            "This system manages the complete lifecycle of resin batch production, quality testing, and R&D experimentation. It features multi-unit operations support, a financial year-based sequential batch numbering system, quality control validation, and an extensive R&D module for tracking projects, experiments, and tasks. A dynamic KPI dashboard provides real-time metrics for production and team performance.",
+        challenges: [
+            "Managing complex organizational hierarchies and multi-unit production facilities.",
+            "Implementing an automated Financial Year-based sequential batch numbering system.",
+            "Building a robust audit trail for all batch operations and draft-to-approval workflows.",
+        ],
+        solutions: [
+            "Developed a structured Next.js 16 frontend and FastAPI backend with PostgreSQL for complex relational data.",
+            "Used Celery for background tasks and MinIO for file storage of reports and testing collateral.",
+            "Created an extensive R&D module mapping high-level projects down to specific executable tasks.",
+        ],
+        techStackDetailed: [
+            { category: "Frontend", technologies: ["Next.js 16", "TypeScript", "Tailwind CSS"] },
+            { category: "Backend", technologies: ["FastAPI", "PostgreSQL", "SQLAlchemy"] },
+            { category: "Infrastructure", technologies: ["Docker", "Celery", "MinIO"] },
+        ],
+        image: "/placeholder.svg",
+        category: "information-systems",
+        tags: ["FastAPI", "Next.js", "PostgreSQL", "Docker", "Celery"],
+        featured: true,
+    },
+    {
+        id: 14,
+        title: "CAD AI",
+        slug: "cad-ai",
+        description:
+            "An AI-powered tool leveraging GPT-4o and FreeCAD to generate and modify 3D models using natural language prompts.",
+        longDescription:
+            "CAD AI bridges the gap between natural language descriptions and precise 3D geometry. By utilizing OpenAI's GPT-4o for spatial reasoning and planning, and FreeCAD for deterministic geometry generation, users can create STLs and STEP files conversationally. The platform features an interactive Three.js viewer for real-time model inspection and an iterative editing workflow.",
+        challenges: [
+            "Translating ambiguous natural language into deterministic geometric constraints.",
+            "Integrating a headless FreeCAD environment with a web-based FastAPI backend.",
+            "Rendering complex generated 3D models interactively in the browser.",
+        ],
+        solutions: [
+            "Designed a robust prompt engineering pipeline for GPT-4o to output structured FreeCAD Python scripts.",
+            "Built a seamless Next.js frontend with React Three Fiber/Three.js to visualize the generated outputs instantly.",
+            "Implemented a conversational editing loop allowing users to refine the model step-by-step.",
+        ],
+        techStackDetailed: [
+            { category: "Frontend", technologies: ["Next.js", "React", "Three.js"] },
+            { category: "Backend", technologies: ["FastAPI", "Python", "FreeCAD"] },
+            { category: "AI", technologies: ["OpenAI GPT-4o"] },
+        ],
+        image: "/img/projects/cadai.png",
+        category: "information-systems",
+        tags: ["GPT-4o", "FreeCAD", "FastAPI", "Next.js", "Three.js"],
+        githubUrl: "https://github.com/SathvikKV/cadai",
+        featured: true,
+    },
+    {
+        id: 17,
+        title: "Shakespearean Sonnet Generator",
+        slug: "sonnet-generator",
+        description:
+            "A comparative deep learning analysis generating Shakespearean sonnets using both Diffusion Models and Autoregressive Transformers.",
+        longDescription:
+            "This NLP research project explores two fundamentally different deep learning architectures for creative text generation. It contrasts an emerging Text Diffusion Model—diffusing BERT embeddings in a continuous latent space processed via a 1D U-Net—against a classic, from-scratch Autoregressive Encoder-Decoder Transformer. The study deeply analyzes the structural coherence, vocabulary quality, and decoding challenges of continuous latent vectors versus discrete autoregressive token sampling.",
+        challenges: [
+            "Decoding continuous latent vectors back into discrete text tokens for the diffusion model.",
+            "Capturing long-range poetic dependencies and structural rhymes within the sonnet format.",
+            "Implementing complex Transformer and U-Net architectures entirely from scratch.",
+        ],
+        solutions: [
+            "Utilized Parts-of-Sentence (POS) conditioning to guide the diffusion process.",
+            "Implemented a custom Multi-Head Attention mechanism to track long-range context.",
+            "Compared PyTorch (Diffusion) and TensorFlow (Transformer) frameworks side-by-side to evaluate architectural trade-offs.",
+        ],
+        techStackDetailed: [
+            { category: "Diffusion", technologies: ["PyTorch", "1D U-Net", "BERT Embeddings"] },
+            { category: "Transformer", technologies: ["TensorFlow", "Multi-Head Attention"] },
+            { category: "Domain", technologies: ["Natural Language Processing", "Generative AI"] },
+        ],
+        image: "/placeholder.svg",
+        category: "information-systems",
+        tags: ["PyTorch", "TensorFlow", "Transformers", "Diffusion Models", "NLP"],
+        githubUrl: "https://github.com/SathvikKV/Transformer_vs_Diffusion_Shakespeare_Sonnet_Generator/blob/main/FinalProject_Team4.ipynb",
+        featured: true,
+    },
+    {
+        id: 18,
+        title: "Multi-Modal Terrain Classification",
+        slug: "terrain-classification",
+        description:
+            "A highly parallelized pipeline classifying off-road terrain roughness using synchronized multi-modal sensor and RGB image data.",
+        longDescription:
+            "Developed for autonomous vehicle navigation, this high-performance system categorizes terrain roughness by fusing high-frequency IMU/GPS data with visual scenery. The pipeline processes ~28GB of data efficiently through mass parallelization. Sensor data is processed via Dask and multiprocessing (CPU), while 7,068 image embeddings are extracted using a ResNet18 model distributed across GPUs via PyTorch DDP. The final classification utilizes a Deep MLP fusion network.",
+        challenges: [
+            "Handling massive, highly synchronous multi-modal datasets effectively.",
+            "Overcoming CPU shared memory contention and maximizing GPU utilization.",
+            "Balancing the recall of 'Rough' terrain to prioritize autonomous vehicle safety.",
+        ],
+        solutions: [
+            "Achieved a 6.7x speedup in data alignment using 16-worker multiprocessing.",
+            "Implemented DistributedDataParallel (DDP) for image extraction, reducing time from 771s to 195s.",
+            "Demonstrated that a deep class-weighted MLP fusion model outperformed Random Forest baselines by significantly increasing critical terrain recall.",
+        ],
+        techStackDetailed: [
+            { category: "Parallel Computing", technologies: ["PyTorch DDP", "Dask", "Joblib"] },
+            { category: "Deep Learning", technologies: ["Torchvision (ResNet18)", "MLP Fusion"] },
+            { category: "Data Science", technologies: ["Pandas", "Scikit-Learn"] },
+        ],
+        image: "/placeholder.svg",
+        category: "information-systems",
+        featured: true,
+        tags: ["PyTorch DDP", "Dask", "Computer Vision", "Parallel Computing", "Sensor Fusion"],
+        githubUrl: "https://github.com/SathvikKV/Parallel-Multi-Modal-Terrain-Roughness-Classification/blob/main/Final_Project_Team11_Notebook.ipynb",
     },
     {
         id: 11,
@@ -413,7 +451,7 @@ export const projects: Project[] = [
             { category: "Database", technologies: ["Snowflake", "S3"] },
             { category: "App", technologies: ["FastAPI", "Streamlit"] },
         ],
-        image: "/img/projects/summary.png",
+        image: "/placeholder.svg",
         category: "information-systems",
         tags: ["Python", "Airflow", "FastAPI", "Snowflake"],
         githubUrl: "https://github.com/BigDataIA-Fall2024-TeamB8/Assignment-2",
@@ -545,7 +583,7 @@ export const projects: Project[] = [
         demoUrl:
             "https://www.youtube.com/watch?v=j3S8Jn7C3iE&ab_channel=SathvikVadavatha",
         featured: true,
-    },
+    }
 ];
 
 export const blogPosts: BlogPost[] = [
