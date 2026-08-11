@@ -72,12 +72,12 @@ function Typewriter({
 export default function AboutSection() {
   const skills = [
     { name: "Python & SQL", icon: <Code className="h-5 w-5" /> },
-    { name: "Data Analysis", icon: <Database className="h-5 w-5" /> },
-    { name: "Data Visualization", icon: <Lightbulb className="h-5 w-5" /> },
+    { name: "Data Engineering", icon: <Database className="h-5 w-5" /> },
+    { name: "Agentic AI Systems", icon: <Rocket className="h-5 w-5" /> },
     { name: "Machine Learning", icon: <Cpu className="h-5 w-5" /> },
     { name: "Generative AI & LLMs", icon: <Rocket className="h-5 w-5" /> },
-    { name: "Business Analyst", icon: <Wrench className="h-5 w-5" /> },
-    { name: "Communication", icon: <Code className="h-5 w-5" /> },
+    { name: "Cloud Infrastructure", icon: <Wrench className="h-5 w-5" /> },
+    { name: "Full-Stack Development", icon: <Code className="h-5 w-5" /> },
     { name: "Problem Solving", icon: <Lightbulb className="h-5 w-5" /> },
   ];
 
@@ -108,7 +108,7 @@ export default function AboutSection() {
           <p className="text-2xl md:text-3xl text-gray-300">
             a{" "}
             <Typewriter
-              words={["Student", "Data Scientist", "Data Analyst","Machine Learning Engineer","AI Engineer"]}
+              words={["Software Engineer", "AI Engineer", "Data Engineer", "Founder"]}
               className="font-semibold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-red-500"
             />
           </p>
@@ -132,11 +132,7 @@ export default function AboutSection() {
                   My Background
                 </h3>
                 <p className="text-gray-300 leading-relaxed text-base md:text-lg">
-                  I am a systems-minded engineer at the intersection of{" "}
-                  <strong>Information Systems</strong> and{" "}
-                  <strong>Mechanical Engineering</strong>. I design and deliver
-                  intelligent, scalable AI solutions that connect data,
-                  infrastructure and user experience.
+                  I'm a software and AI engineer designing and deploying end to end AI systems across fintech and healthcare, spanning full stack application development, agentic workflows, cloud infrastructure, and ML model integration. I take systems from the data layer through model deployment to production facing applications, with hands on work across AWS, Azure, and GCP in regulated and enterprise environments.
                 </p>
               </div>
 
@@ -145,32 +141,32 @@ export default function AboutSection() {
                 <Item
                   icon={<Database className="text-orange-500 w-5 h-5 mt-1" />}
                   title="Data Engineering"
-                  text="Built robust pipelines with Airflow and Snowflake on top of AWS S3 for ingestion, storage and governance of structured and unstructured data at scale."
-                />
-                <Item
-                  icon={<BarChart className="text-orange-500 w-5 h-5 mt-1" />}
-                  title="Data Analytics"
-                  text="Turned raw data into clear insights using Python, Pandas, Tableau and Power BI with a focus on storytelling, metric selection and decision support."
+                  text="Built production data pipelines on Databricks, Snowflake, and Kafka processing real time and batch data at scale, from legacy PLM systems to travel and fintech platforms."
                 />
                 <Item
                   icon={<Rocket className="text-orange-500 w-5 h-5 mt-1" />}
                   title="AI and Cloud Engineering"
-                  text="Integrated GPT-class models with FastAPI and Pinecone, containerized with Docker and deployed on AWS. Served image and time series models through Amazon SageMaker real time endpoints."
+                  text="Built agentic AI systems and AI-driven browser agents for real time equipment data extraction and underwriting automation, deployed on AWS and Azure in regulated environments."
+                />
+                <Item
+                  icon={<Wrench className="text-orange-500 w-5 h-5 mt-1" />}
+                  title="Infrastructure as Code"
+                  text="Architected Terraform and Step Functions based ML platforms provisioning compliant, repeatable environments across AWS and Azure for training, deployment, and inference."
+                />
+                <Item
+                  icon={<BarChart className="text-orange-500 w-5 h-5 mt-1" />}
+                  title="Data Analytics"
+                  text="Turned raw data into clear insights using Python and Pandas, with a focus on feature engineering and metric selection for downstream ML and recommendation systems."
                 />
                 <Item
                   icon={<Cpu className="text-orange-500 w-5 h-5 mt-1" />}
                   title="Applied Machine Learning"
-                  text="Delivered Random Forest based activity classification and intensity regression for time series plus imaging workflows with measured performance and monitoring."
+                  text="Delivered SageMaker training and inference pipelines with MLflow tracking, and built fraud detection and recommendation models used in production."
                 />
                 <Item
-                  icon={<Lightbulb className="text-orange-500 w-5 h-5 mt-1" />}
-                  title="Infrastructure as Code"
-                  text="Architected Terraform templates with AWS Step Functions to provision repeatable multi-cloud ML pipelines on AWS and GCP for training, deployment and inference."
-                />
-                <Item
-                  icon={<Wrench className="text-orange-500 w-5 h-5 mt-1" />}
+                  icon={<Code className="text-orange-500 w-5 h-5 mt-1" />}
                   title="Product and Execution"
-                  text="Own the path from data to UI: feature engineering, system design, API contracts and front ends in Streamlit and Next.js with FastAPI back ends and secure auth."
+                  text="Founded and built Sanq.ai, a multi tenant restaurant inventory platform, owning everything from backend architecture to the mobile app used by a live pilot customer."
                 />
               </div>
             </CardContent>

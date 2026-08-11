@@ -78,51 +78,26 @@ export default function SkillsSection() {
 
   const allSkills = [
     // Programming
-    "Python",
-    "Java",
-    "R",
+    "Python", "Java", "R", "TypeScript",
     // Data/ML
-    "Pandas",
-    "NumPy",
-    "TensorFlow",
-    "Keras",
-    "Seaborn",
-    "Tableau",
-    "Excel",
-    "Power BI",
+    "Pandas", "NumPy", "TensorFlow", "Keras", "Seaborn", "Tableau", "Excel",
+    "Power BI", "PySpark", "NetworkX", "HuggingFace", "Scikit-learn",
+    "PyTorch", "MLflow", "SHAP", "Apache Spark", "Databricks", "Delta Lake",
+    "Snowflake", "dbt",
+    // GenAI & AI
+    "LangChain", "LangGraph", "OpenAI/Anthropic APIs", "RAG", "Agentic AI Systems",
+    "Prompt Engineering", "Claude Code",
     // Web
-    "Streamlit",
-    "React",
-    "Vue.js",
-    "HTML",
-    "CSS",
-    // Cloud (split out but included in 'all')
-    "AWS",
-    "GCP",
-    "Azure",
-    "Terraform",
-    "Docker",
-    "Airflow",
-    "Git",
+    "Streamlit", "React", "Vue.js", "HTML", "CSS", "Next.js", "Tailwind CSS", "FastAPI",
+    // Cloud & DevOps
+    "AWS", "GCP", "Azure", "Terraform", "Docker", "Airflow", "Git", "GitHub Actions",
+    "Azure DevOps", "CI/CD", "Kafka",
     // Databases
-    "SQL",
-    "PostgreSQL",
-    "Snowflake",
-    "MongoDB",
-    "Hadoop",
+    "SQL", "PostgreSQL", "MongoDB", "Hadoop", "MySQL", "DynamoDB", "Supabase", "Pinecone", "Weaviate",
     // Other
-    "PTC Windchill",
-    "LangChain",
-    "LangGraph",
-    "Jira",
-    "Probability",
-    "Statistics",
-    "Time Series",
+    "PTC Windchill", "Jira", "Probability", "Statistics", "Time Series",
     // Mech
-    "SolidWorks",
-    "AutoCAD",
-    "MATLAB",
-    "LabVIEW",
+    "SolidWorks", "AutoCAD", "MATLAB", "LabVIEW",
   ];
 
   return (
@@ -236,59 +211,45 @@ export default function SkillsSection() {
             </TabsContent>
 
             <TabsContent value="programming">
-              <TechGrid skills={["Python", "Java", "R"]} />
+              <TechGrid skills={["Python", "Java", "R", "TypeScript"]} />
             </TabsContent>
 
             <TabsContent value="data-ml">
               <TechGrid
                 skills={[
-                  "Pandas",
-                  "NumPy",
-                  "TensorFlow",
-                  "Keras",
-                  "Seaborn",
-                  "Tableau",
-                  "Excel",
-                  "Power BI",
+                  "Pandas", "NumPy", "TensorFlow", "Keras", "Seaborn",
+                  "Tableau", "Excel", "Power BI", "PySpark", "NetworkX",
+                  "HuggingFace", "Scikit-learn", "PyTorch", "MLflow", "SHAP",
+                  "Apache Spark", "Databricks", "Delta Lake", "Snowflake", "dbt"
                 ]}
               />
             </TabsContent>
 
-            {/* WEB SEPARATED FROM CLOUD */}
             <TabsContent value="web">
-              <TechGrid skills={["Streamlit", "React", "Vue.js", "HTML", "CSS"]} />
+              <TechGrid skills={["Streamlit", "React", "Vue.js", "HTML", "CSS", "Next.js", "Tailwind CSS", "FastAPI"]} />
             </TabsContent>
 
             <TabsContent value="cloud">
               <TechGrid
                 skills={[
-                  "AWS",
-                  "GCP",
-                  "Azure",
-                  "Terraform",
-                  "Docker",
-                  "Airflow",
-                  "Git",
+                  "AWS", "GCP", "Azure", "Terraform", "Docker",
+                  "Airflow", "Git", "GitHub Actions", "Azure DevOps", "CI/CD", "Kafka"
                 ]}
               />
             </TabsContent>
 
             <TabsContent value="databases">
               <TechGrid
-                skills={["SQL", "PostgreSQL", "Snowflake", "MongoDB", "Hadoop"]}
+                skills={["SQL", "PostgreSQL", "MongoDB", "Hadoop", "MySQL", "DynamoDB", "Supabase", "Pinecone", "Weaviate"]}
               />
             </TabsContent>
 
             <TabsContent value="other">
               <TechGrid
                 skills={[
-                  "PTC Windchill",
-                  "LangChain",
-                  "LangGraph",
-                  "Jira",
-                  "Probability",
-                  "Statistics",
-                  "Time Series",
+                  "PTC Windchill", "LangChain", "LangGraph", "Jira",
+                  "Probability", "Statistics", "Time Series", "OpenAI/Anthropic APIs",
+                  "RAG", "Agentic AI Systems", "Prompt Engineering", "Claude Code"
                 ]}
               />
             </TabsContent>
@@ -330,12 +291,23 @@ function TechIcon({ name, icon }: { name: string; icon: React.ReactNode }) {
   );
 }
 
+const validIcons = new Set([
+  "airflow", "autocad", "aws", "azure", "css", "docker", "excel", "gcp",
+  "git", "hadoop", "html", "java", "jira", "keras", "labview", "langchain",
+  "langgraph", "matlab", "mongodb", "numpy", "pandas", "postgresql",
+  "powerbi", "probability", "ptcwindchill", "python", "r", "react",
+  "seaborn", "snowflake", "solidworks", "sql", "statistics", "streamlit",
+  "tableau", "tensorflow", "terraform", "timeseries", "vuejs"
+]);
+
 function LogoImage({ name }: { name: string }) {
-  const filename =
-    name.toLowerCase().replace(/\s+/g, "").replace(/[+\.]/g, "") + ".png";
+  const filenameBase = name.toLowerCase().replace(/\s+/g, "").replace(/[+\.]/g, "");
+  if (!validIcons.has(filenameBase)) {
+    return null;
+  }
   return (
     <Image
-      src={`/img/icons/${filename}`}
+      src={`/img/icons/${filenameBase}.png`}
       alt={name}
       width={32}
       height={32}

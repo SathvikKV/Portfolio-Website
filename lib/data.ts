@@ -30,6 +30,58 @@ export interface BlogPost {
 
 export const projects: Project[] = [
     {
+        id: 21,
+        title: "Sanq.ai",
+        slug: "sanq-ai",
+        description: "Founded and built a multi tenant restaurant inventory management platform used by a live pilot restaurant; the platform uses AI to read photos of invoices and menus, automatically match items to inventory, and flag anything it is not confident about instead of guessing.",
+        longDescription: "Sanq.ai is a multi tenant restaurant inventory management SaaS platform designed to eliminate manual data entry. Built as the sole technical founder, the platform integrates directly with WhatsApp and Telegram, allowing restaurant staff to simply send a photo of an invoice or kitchen indent slip. The system uses AI to extract items, quantities, and units, and then intelligently reconciles them against existing inventory. To maintain data integrity, the AI flags low confidence matches for human review rather than silently guessing. The platform is currently actively used by a live pilot customer.",
+        challenges: [
+            "Ensuring high data integrity when extracting unstructured data from varied invoice formats, without letting uncertain matches corrupt inventory records.",
+            "Designing a frictionless user experience for restaurant staff without requiring them to learn a new app.",
+            "Building a secure, multi tenant architecture that isolates data across different restaurant clients."
+        ],
+        solutions: [
+            "Implemented a confidence threshold system that flags ambiguous items for review instead of forcing incorrect matches.",
+            "Integrated with WhatsApp and Telegram for seamless photo uploads directly from the kitchen.",
+            "Leveraged Supabase and PostgreSQL to enforce schema per tenant isolation, ensuring scalable and secure data management."
+        ],
+        techStackDetailed: [
+            { category: "Frontend", technologies: ["Expo React Native"] },
+            { category: "Backend", technologies: ["FastAPI", "Supabase", "PostgreSQL"] },
+            { category: "AI & Storage", technologies: ["Google Gemini", "AWS S3"] }
+        ],
+        image: "/gradient-placeholder.svg",
+        category: "information-systems",
+        tags: ["FastAPI", "Supabase", "PostgreSQL", "Expo React Native"],
+        featured: true,
+    },
+    {
+        id: 22,
+        title: "CitadelTwin",
+        slug: "citadel-twin",
+        description: "Built a platform that converts 2D architectural blueprints into interactive 3D building models in seconds instead of hours; the underlying pipeline detects floors and rooms, labels them correctly, and validates that the layout makes physical sense, reaching 89% accuracy on wall detection.",
+        longDescription: "CitadelTwin is a full stack platform that automates the conversion of 2D architectural blueprints into navigable, interactive 3D building models. I contributed specifically to the computer vision pipeline, focusing on dimension annotation accuracy, room labeling, and wall detection, where we achieved an F1 score of 0.89. The overall pipeline processes the image through floor detection, spatial assignment, and topology validation before exporting a final GLB file. This automation reduces 3D model generation time from hours of manual architect work down to seconds.",
+        challenges: [
+            "Accurately identifying walls and boundaries in noisy, non standard architectural blueprints.",
+            "Ensuring spatial constraints and topological validity when projecting 2D lines into 3D geometry.",
+            "Maintaining low latency processing to keep the generation time under a few seconds."
+        ],
+        solutions: [
+            "Trained and fine tuned YOLO models for precise room and wall detection, achieving 89% accuracy.",
+            "Integrated EasyOCR for robust dimension and label extraction from the blueprints.",
+            "Utilized trimesh to construct and validate the final 3D geometry before GLB export."
+        ],
+        techStackDetailed: [
+            { category: "Frontend", technologies: ["React", "TypeScript"] },
+            { category: "Backend", technologies: ["FastAPI", "HuggingFace Spaces"] },
+            { category: "Computer Vision", technologies: ["YOLO", "EasyOCR", "trimesh"] }
+        ],
+        image: "/gradient-placeholder.svg",
+        category: "information-systems",
+        tags: ["React", "TypeScript", "FastAPI", "YOLO", "EasyOCR", "trimesh"],
+        featured: true,
+    },
+    {
         id: 1,
         title: "NutriGuard AI",
         slug: "nutriguard-ai",
