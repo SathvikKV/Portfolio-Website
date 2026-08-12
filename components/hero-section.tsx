@@ -58,7 +58,7 @@ export default function HeroSection() {
           >
             {/* Replace with your actual headshot */}
             <Image
-              src="/img/profile/profile.jpeg"
+              src="/img/profile/profile.png"
               alt="Sathvik's headshot"
               fill
               className="object-cover"
