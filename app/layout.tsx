@@ -1,40 +1,43 @@
 import type React from "react";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Archivo, IBM_Plex_Mono, Instrument_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import SmoothScroll from "@/components/site/smooth-scroll";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 
-
-import { Analytics } from "@vercel/analytics/react"
-
-const inter = Inter({ subsets: ["latin"] });
+const display = Archivo({
+  subsets: ["latin"],
+  variable: "--font-display",
+  axes: ["wdth"],
+  display: "swap",
+});
+const sans = Instrument_Sans({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
+const mono = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-mono", display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Sathvik Vadavatha | Portfolio",
-  description: "Professional portfolio of Sathvik Vadavatha",
-  generator: "v0.dev",
+  metadataBase: new URL("https://sathvik-vadavatha-portfolio.vercel.app"),
+  title: "Sathvik Vadavatha · Software, AI & Data Engineer",
+  description: "Sathvik Vadavatha builds data platforms, machine-learning systems and AI agents that hold up in production.",
+  openGraph: {
+    title: "Sathvik Vadavatha · Software, AI & Data Engineer",
+    description: "Data platforms, machine-learning systems and AI agents that hold up in production.",
+    images: ["/img/profile/profile.jpg"],
+  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export const viewport: Viewport = {
+  themeColor: "#F7F6F2",
+  colorScheme: "light",
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-          <Analytics />
-        </ThemeProvider>
+    <html lang="en" className={`${display.variable} ${sans.variable} ${mono.variable}`}>
+      <body className="grain font-sans">
+        <SmoothScroll />
+        {children}
+        <Analytics />
       </body>
     </html>
   );
 }
-
-import "./globals.css";

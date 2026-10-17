@@ -1,218 +1,220 @@
-import { projects } from "@/lib/data";
-import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft, ArrowRight, Github, ExternalLink } from "lucide-react";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
+import { notFound } from "next/navigation";
+import { domainLabels, projects } from "@/lib/data";
+import Header from "@/components/site/header";
+import Footer from "@/components/site/footer";
+import { Plate } from "@/components/site/plate";
+import { Reveal, SplitReveal } from "@/components/site/reveal";
+import { Tech } from "@/components/site/tech-icon";
+import { Track } from "@/components/site/track";
+
+type Params = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-    return projects.map((project) => ({
-        slug: project.slug,
-    }));
+  return projects.map((p) => ({ slug: p.slug }));
 }
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-    const projectIndex = projects.findIndex((p) => p.slug === params.slug);
-    const project = projects[projectIndex];
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
+  return project ? { title: `${project.title} · Sathvik Vadavatha`, description: project.description } : {};
+}
 
-    if (!project) {
-        notFound();
-    }
+export default async function ProjectPage({ params }: Params) {
+  const { slug } = await params;
+  const index = projects.findIndex((p) => p.slug === slug);
+  const project = projects[index];
+  if (!project) notFound();
 
-    const prevProject = projectIndex > 0 ? projects[projectIndex - 1] : null;
-    const nextProject = projectIndex < projects.length - 1 ? projects[projectIndex + 1] : null;
+  const next = projects[(index + 1) % projects.length];
+  const pairs = (project.challenges ?? []).map((c, i) => ({ challenge: c, solution: project.solutions?.[i] }));
+  const stack = project.techStackDetailed ?? [{ category: "Tools", technologies: project.tags }];
+  const links = [
+    project.githubUrl && { label: "Source code", href: project.githubUrl },
+    project.demoUrl && { label: "Live demo", href: project.demoUrl },
+  ].filter(Boolean) as { label: string; href: string }[];
 
-    return (
-        <div className="min-h-screen bg-black text-white relative">
-            <Navbar />
+  return (
+    <>
+      <Header />
+      <main className="pt-28">
+        <article>
+          <header className="container">
+            <div className="flex items-center justify-between border-b border-rule pb-4">
+              <Link href="/#work" className="label link-draw hover:text-ink">
+                ← Index of work
+              </Link>
+              <span className="label">
+                No. {String(index + 1).padStart(2, "0")} / {String(projects.length).padStart(2, "0")}
+              </span>
+            </div>
 
-            {/* Floating Navigation (Desktop) */}
-            {prevProject && (
-                <Link
-                    href={`/projects/${prevProject.slug}`}
-                    className="hidden lg:flex fixed left-8 top-1/2 -translate-y-1/2 z-40 group"
-                    aria-label="Previous Project"
-                >
-                    <div className="absolute left-full top-1/2 -translate-y-1/2 ml-4 opacity-0 group-hover:opacity-100 transition-opacity bg-black/80 text-white text-sm px-3 py-1 rounded-md whitespace-nowrap border border-white/10">
-                        {prevProject.title}
-                    </div>
-                    <Button variant="outline" size="icon" className="rounded-full bg-black/50 backdrop-blur-sm border-white/20 hover:bg-white/10 hover:border-orange-500 h-12 w-12 transition-all group-hover:scale-110">
-                        <ArrowLeft className="h-6 w-6 text-gray-300 group-hover:text-orange-500" />
-                    </Button>
-                </Link>
-            )}
+            <div className="grid gap-10 pt-14 md:grid-cols-12 md:gap-8">
+              <div className="md:col-span-3">
+                <span className="label text-pine">{domainLabels[project.domain]}</span>
+              </div>
+              <div className="md:col-span-9">
+                <SplitReveal
+                  as="h1"
+                  immediate
+                  text={project.title}
+                  className="display text-[clamp(3.4rem,9vw,9rem)] leading-[0.92] text-ink"
+                />
+                {project.metric && (
+                  <Reveal delay={0.3}>
+                    <p className="hl mt-4 text-[clamp(1.4rem,2.4vw,2.2rem)] text-pine">{project.metric}</p>
+                  </Reveal>
+                )}
+              </div>
+            </div>
 
-            {nextProject && (
-                <Link
-                    href={`/projects/${nextProject.slug}`}
-                    className="hidden lg:flex fixed right-8 top-1/2 -translate-y-1/2 z-40 group"
-                    aria-label="Next Project"
-                >
-                    <div className="absolute right-full top-1/2 -translate-y-1/2 mr-4 opacity-0 group-hover:opacity-100 transition-opacity bg-black/80 text-white text-sm px-3 py-1 rounded-md whitespace-nowrap border border-white/10">
-                        {nextProject.title}
-                    </div>
-                    <Button variant="outline" size="icon" className="rounded-full bg-black/50 backdrop-blur-sm border-white/20 hover:bg-white/10 hover:border-orange-500 h-12 w-12 transition-all group-hover:scale-110">
-                        <ArrowRight className="h-6 w-6 text-gray-300 group-hover:text-orange-500" />
-                    </Button>
-                </Link>
-            )}
-
-            <main className="pt-24 pb-16">
-                <div className="container mx-auto px-4">
-                    <Link
-                        href="/#projects"
-                        className="inline-flex items-center text-gray-400 hover:text-orange-500 mb-8 transition-colors"
-                    >
-                        <ArrowLeft className="mr-2 h-4 w-4" />
-                        Back to Projects
-                    </Link>
-
-                    <div className="grid lg:grid-cols-2 gap-12">
-                        <div>
-                            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                                {project.title}
-                            </h1>
-                            <div className="flex flex-wrap gap-2 mb-8">
-                                {project.tags.map((tag) => (
-                                    <Badge
-                                        key={tag}
-                                        variant="outline"
-                                        className="border-orange-500/50 text-orange-500"
-                                    >
-                                        {tag}
-                                    </Badge>
-                                ))}
-                            </div>
-
-                            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                                {project.longDescription || project.description}
-                            </p>
-
-                            <div className="flex gap-4 mb-12">
-                                {project.githubUrl && (
-                                    <Button asChild size="lg" className="bg-gray-800 hover:bg-gray-700">
-                                        <Link href={project.githubUrl} target="_blank">
-                                            <Github className="mr-2 h-5 w-5" />
-                                            View Code
-                                        </Link>
-                                    </Button>
-                                )}
-                                {project.demoUrl && (
-                                    <Button
-                                        asChild
-                                        size="lg"
-                                        className="bg-gradient-to-r from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 border-none"
-                                    >
-                                        <Link href={project.demoUrl} target="_blank">
-                                            <ExternalLink className="mr-2 h-5 w-5" />
-                                            Live Demo
-                                        </Link>
-                                    </Button>
-                                )}
-                            </div>
-
-                            {project.challenges && (
-                                <div className="mb-8">
-                                    <h2 className="text-2xl font-bold mb-4 text-orange-500">
-                                        Challenges
-                                    </h2>
-                                    <ul className="list-disc list-inside space-y-2 text-gray-300">
-                                        {project.challenges.map((challenge, i) => (
-                                            <li key={i}>{challenge}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )}
-
-                            {project.solutions && (
-                                <div className="mb-8">
-                                    <h2 className="text-2xl font-bold mb-4 text-orange-500">
-                                        Solutions
-                                    </h2>
-                                    <ul className="list-disc list-inside space-y-2 text-gray-300">
-                                        {project.solutions.map((solution, i) => (
-                                            <li key={i}>{solution}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )}
-                        </div>
-
-                        <div className="space-y-8">
-                            <div className="relative aspect-video rounded-xl overflow-hidden border border-gray-800">
-                                <Image
-                                    src={project.image}
-                                    alt={project.title}
-                                    fill
-                                    className="object-cover"
-                                    priority
-                                    sizes="(max-width: 768px) 100vw, 50vw"
-                                />
-                            </div>
-
-                            {project.techStackDetailed && (
-                                <div className="bg-gray-900/50 p-6 rounded-xl border border-gray-800">
-                                    <h3 className="text-xl font-bold mb-4">Tech Stack</h3>
-                                    <div className="space-y-4">
-                                        {project.techStackDetailed.map((stack) => (
-                                            <div key={stack.category}>
-                                                <h4 className="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-2">
-                                                    {stack.category}
-                                                </h4>
-                                                <div className="flex flex-wrap gap-2">
-                                                    {stack.technologies.map((tech) => (
-                                                        <Badge
-                                                            key={tech}
-                                                            variant="secondary"
-                                                            className="bg-gray-800 text-gray-200"
-                                                        >
-                                                            {tech}
-                                                        </Badge>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-
-                    <div className="mt-16 pt-8 border-t border-gray-800 flex justify-between items-center lg:hidden">
-                        {prevProject ? (
-                            <Button asChild variant="ghost" className="text-gray-400 hover:text-orange-500 hover:bg-transparent pl-0">
-                                <Link href={`/projects/${prevProject.slug}`}>
-                                    <ArrowLeft className="mr-2 h-4 w-4" />
-                                    <div className="text-left">
-                                        <div className="text-xs text-gray-500">Previous Project</div>
-                                        <div className="font-semibold">{prevProject.title}</div>
-                                    </div>
-                                </Link>
-                            </Button>
-                        ) : (
-                            <div />
-                        )}
-
-                        {nextProject ? (
-                            <Button asChild variant="ghost" className="text-gray-400 hover:text-orange-500 hover:bg-transparent pr-0">
-                                <Link href={`/projects/${nextProject.slug}`}>
-                                    <div className="text-right">
-                                        <div className="text-xs text-gray-500">Next Project</div>
-                                        <div className="font-semibold">{nextProject.title}</div>
-                                    </div>
-                                    <ArrowRight className="ml-2 h-4 w-4" />
-                                </Link>
-                            </Button>
-                        ) : (
-                            <div />
-                        )}
-                    </div>
+            <Reveal delay={0.4} className="mt-14 grid gap-10 border-t border-rule pt-8 md:grid-cols-12 md:gap-8">
+              <p className="font-display text-[clamp(1.25rem,1.8vw,1.6rem)] font-normal leading-[1.4] text-ink md:col-span-6 md:col-start-4">
+                {project.description}
+              </p>
+              <dl className="space-y-5 md:col-span-3">
+                <div>
+                  <dt className="label">Stack</dt>
+                  <dd className="mt-2 text-[14px] leading-relaxed text-ink-2">{project.tags.join(", ")}</dd>
                 </div>
-            </main>
-            <Footer />
-        </div>
-    );
+                {links.length > 0 && (
+                  <div>
+                    <dt className="label">Links</dt>
+                    <dd className="mt-2 space-y-1">
+                      {links.map((l) => (
+                        <a
+                          key={l.href}
+                          href={l.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="link-undraw block w-fit text-[15px] text-ink"
+                        >
+                          {l.label} ↗
+                        </a>
+                      ))}
+                    </dd>
+                  </div>
+                )}
+              </dl>
+            </Reveal>
+          </header>
+
+          <Reveal delay={0.2} className="container mt-16">
+            <div className="print-on">
+              <Plate
+                project={project}
+                className="aspect-[16/9] w-full"
+                sizes="(max-width: 1360px) 100vw, 1360px"
+                priority
+                parallax={false}
+              />
+            </div>
+          </Reveal>
+
+          {project.gallery && project.gallery.length > 1 && (
+            <section className="mt-24">
+              <div className="container mb-8 flex items-baseline justify-between border-t border-rule pt-5">
+                <span className="label">Plates</span>
+                <span className="label">{project.gallery.length} screens</span>
+              </div>
+              <Track label={`${project.title} screenshots`} itemClassName="w-[86vw] md:w-[min(62vw,820px)]">
+                {project.gallery.map((src, i) => (
+                  <figure key={src} className="group">
+                    <div className="relative aspect-[16/9] overflow-hidden bg-paper-3">
+                      <div data-parallax className="absolute inset-0">
+                        <Image
+                          src={src}
+                          alt={`${project.title} screen ${i + 1}`}
+                          fill
+                          sizes="(max-width: 768px) 86vw, 820px"
+                          className="print object-cover object-top"
+                          draggable={false}
+                        />
+                      </div>
+                    </div>
+                    <figcaption className="label mt-3">Plate {i + 1}</figcaption>
+                  </figure>
+                ))}
+              </Track>
+            </section>
+          )}
+
+          {project.longDescription && (
+            <section className="container mt-28 grid gap-8 md:grid-cols-12">
+              <Reveal className="md:col-span-3">
+                <span className="label">Overview</span>
+              </Reveal>
+              <Reveal delay={0.05} className="md:col-span-8">
+                <p className="font-display text-[clamp(1.4rem,2.2vw,2.1rem)] font-normal leading-[1.4] tracking-[-0.01em] text-ink">
+                  {project.longDescription}
+                </p>
+              </Reveal>
+            </section>
+          )}
+
+          {pairs.length > 0 && (
+            <section className="container mt-28">
+              <div className="grid gap-6 border-t border-rule pt-6 md:grid-cols-12 md:gap-8">
+                <span className="label md:col-span-3">Problems & approach</span>
+                <SplitReveal
+                  text={"The hard parts,\n*and how they were solved.*"}
+                  className="display text-[clamp(2.2rem,4.6vw,4.4rem)] leading-[0.98] text-ink md:col-span-9"
+                />
+              </div>
+              <ol className="mt-14">
+                {pairs.map((p, i) => (
+                  <Reveal key={i} className="grid gap-4 border-t border-rule py-8 md:grid-cols-12 md:gap-8">
+                    <span className="hl text-3xl text-pine md:col-span-1 md:col-start-3">{i + 1}.</span>
+                    <p className="font-display text-xl font-normal leading-snug text-ink md:col-span-4">{p.challenge}</p>
+                    {p.solution && (
+                      <p className="text-[15.5px] leading-relaxed text-ink-2 md:col-span-4 md:col-start-9">{p.solution}</p>
+                    )}
+                  </Reveal>
+                ))}
+              </ol>
+            </section>
+          )}
+
+          <section className="container mt-24">
+            <div className="grid gap-8 border-t border-rule pt-6 md:grid-cols-12">
+              <span className="label md:col-span-3">Built with</span>
+              <div className="grid gap-8 sm:grid-cols-3 md:col-span-9">
+                {stack.map((s, i) => (
+                  <Reveal key={s.category} delay={i * 0.06} className="group">
+                    <p className="font-display text-xl text-ink">{s.category}</p>
+                    <ul className="mt-3 space-y-1.5 text-[15px] text-ink-2">
+                      {s.technologies.map((t) => (
+                        <li key={t}>
+                          <Tech name={t} iconClassName="h-3.5 w-3.5" />
+                        </li>
+                      ))}
+                    </ul>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
+          </section>
+        </article>
+
+        <Link href={`/projects/${next.slug}`} className="group mt-32 block border-t border-rule">
+          <div className="container grid items-end gap-8 py-16 md:grid-cols-12 md:py-24">
+            <div className="md:col-span-3">
+              <span className="label">Next entry</span>
+              <div className="relative mt-5 hidden aspect-[4/3] w-full overflow-hidden md:block">
+                <Plate project={next} className="absolute inset-0" parallax={false} showSpec={false} sizes="300px" />
+              </div>
+            </div>
+            <div className="md:col-span-9">
+              <p className="display text-[clamp(3rem,8vw,8rem)] leading-[0.92] text-ink transition-transform duration-700 ease-out group-hover:translate-x-3">
+                {next.title} <span className="hl text-pine">→</span>
+              </p>
+            </div>
+          </div>
+        </Link>
+      </main>
+      <Footer />
+    </>
+  );
 }

@@ -1,3 +1,13 @@
+export type ProjectDomain = "ai" | "data" | "ml" | "fullstack" | "mechanical";
+
+export const domainLabels: Record<ProjectDomain, string> = {
+    ai: "AI & Agents",
+    data: "Data Engineering",
+    ml: "Machine Learning",
+    fullstack: "Full-Stack",
+    mechanical: "Mechanical",
+};
+
 export interface Project {
     id: number;
     title: string;
@@ -12,6 +22,11 @@ export interface Project {
     }[];
     image: string;
     category: "information-systems" | "mechanical";
+    /** Primary discipline, used for filtering and accent colour. */
+    domain: ProjectDomain;
+    /** Short headline result shown on cards. */
+    metric?: string;
+    gallery?: string[];
     tags: string[];
     demoUrl?: string;
     githubUrl?: string;
@@ -33,6 +48,8 @@ export const projects: Project[] = [
         id: 21,
         title: "Sanq.ai",
         slug: "sanq-ai",
+        domain: "ai",
+        metric: "Founder · live pilot",
         description: "Founded and built a multi tenant restaurant inventory management platform used by a live pilot restaurant; the platform uses AI to read photos of invoices and menus, automatically match items to inventory, and flag anything it is not confident about instead of guessing.",
         longDescription: "Sanq.ai is a multi tenant restaurant inventory management SaaS platform designed to eliminate manual data entry. Built as the sole technical founder, the platform integrates directly with WhatsApp and Telegram, allowing restaurant staff to simply send a photo of an invoice or kitchen indent slip. The system uses AI to extract items, quantities, and units, and then intelligently reconciles them against existing inventory. To maintain data integrity, the AI flags low confidence matches for human review rather than silently guessing. The platform is currently actively used by a live pilot customer.",
         challenges: [
@@ -59,6 +76,8 @@ export const projects: Project[] = [
         id: 22,
         title: "CitadelTwin",
         slug: "citadel-twin",
+        domain: "ml",
+        metric: "0.89 F1 wall detection",
         description: "Built a platform that converts 2D architectural blueprints into interactive 3D building models in seconds instead of hours; the underlying pipeline detects floors and rooms, labels them correctly, and validates that the layout makes physical sense, reaching 89% accuracy on wall detection.",
         longDescription: "CitadelTwin is a full stack platform that automates the conversion of 2D architectural blueprints into navigable, interactive 3D building models. I contributed specifically to the computer vision pipeline, focusing on dimension annotation accuracy, room labeling, and wall detection, where we achieved an F1 score of 0.89. The overall pipeline processes the image through floor detection, spatial assignment, and topology validation before exporting a final GLB file. This automation reduces 3D model generation time from hours of manual architect work down to seconds.",
         challenges: [
@@ -85,6 +104,8 @@ export const projects: Project[] = [
         id: 1,
         title: "NutriGuard AI",
         slug: "nutriguard-ai",
+        domain: "ai",
+        metric: "OCR → GPT-4 → RAG",
         description:
             "Built an AI-powered nutrition assistant using Azure OCR and GPT-4 to extract ingredients, flag harmful additives, and summarize health risks.",
         longDescription:
@@ -114,6 +135,8 @@ export const projects: Project[] = [
         id: 19,
         title: "TxSentry",
         slug: "txsentry",
+        domain: "ml",
+        metric: "0.994 PR-AUC · 10M+ txns",
         description: "Real-Time Fraud Detection & Autonomous Investigation System. Built a large-scale fraud detection platform processing 10M+ financial transactions using a hybrid ML and agentic architecture.",
         longDescription: "Engineered a multi-model detection pipeline combining LightGBM (0.994 PR-AUC), Isolation Forest, and graph-based anomaly detection (NetworkX), enhanced with SHAP explainability for transparent decision-making. Designed an autonomous investigation system using LangGraph, where agents dynamically plan and execute tool calls (via MCP) to analyze transaction patterns, graph relationships, and behavioral signals, producing structured case memos. Implemented a modular system supporting real-time alert triage, graph analysis, and autonomous reasoning, reducing manual investigation effort and enabling scalable fraud operations.",
         challenges: [
@@ -132,6 +155,7 @@ export const projects: Project[] = [
             { category: "Data Engineering", technologies: ["PySpark", "Graph Analytics"] }
         ],
         image: "/img/projects/tx_1.PNG",
+        gallery: ["/img/projects/tx_1.PNG", "/img/projects/tx_2.PNG", "/img/projects/tx_3.PNG", "/img/projects/tx_4.PNG", "/img/projects/tx_5.PNG", "/img/projects/tx_6.PNG"],
         category: "information-systems",
         tags: ["Machine Learning", "LangGraph", "PySpark", "Graph Analytics", "SHAP", "FastAPI"],
         githubUrl: "https://github.com/SathvikKV/TxSentry",
@@ -141,6 +165,8 @@ export const projects: Project[] = [
         id: 16,
         title: "NimbusBill",
         slug: "nimbusbill",
+        domain: "data",
+        metric: "Idempotent SCD2 billing",
         description:
             "A warehouse-native, usage-based billing engine built on a Snowflake Medallion architecture orchestrated by Airflow.",
         longDescription:
@@ -161,6 +187,7 @@ export const projects: Project[] = [
             { category: "Data & Backend", technologies: ["Snowflake", "FastAPI", "Pydantic"] },
         ],
         image: "/img/projects/nimbus1.png",
+        gallery: ["/img/projects/nimbus1.png", "/img/projects/nimbus2.png", "/img/projects/nimbus3.png"],
         category: "information-systems",
         tags: ["Snowflake", "Airflow", "FastAPI", "Next.js", "Data Engineering"],
         githubUrl: "https://github.com/SathvikKV/NimbusBill",
@@ -170,6 +197,8 @@ export const projects: Project[] = [
         id: 20,
         title: "PitWall Live",
         slug: "pitwall-live",
+        domain: "ai",
+        metric: "Real-time voice agent",
         description: "AI-Powered F1 Race Strategy Assistant. Developed a real-time AI-powered race engineer dashboard that enables multimodal interaction with live Formula 1 telemetry data.",
         longDescription: "Built a multimodal agent using Gemini Live API that processes live telemetry streams and executes strategic tools (e.g., pit projections, undercut estimation, strategy recommendations) through a FastAPI backend. Designed a low-latency architecture with Next.js frontend, Redis caching for high-frequency telemetry, and WebRTC-based audio interaction, enabling real-time conversational analysis of race scenarios. Integrated external data sources (FastF1/OpenF1, Wikipedia) and deployed the system on Google Cloud using Terraform and Cloud Run for scalable, serverless operation.",
         challenges: [
@@ -197,6 +226,8 @@ export const projects: Project[] = [
         id: 15,
         title: "MovieMeter",
         slug: "moviemeter",
+        domain: "data",
+        metric: "Medallion + LightGBM",
         description:
             "An AI-powered movie analytics platform that predicts Oscar potential and measures audience trust gaps using Snowflake.",
         longDescription:
@@ -226,6 +257,8 @@ export const projects: Project[] = [
         id: 12,
         title: "Realtime Copilot",
         slug: "realtime-copilot",
+        domain: "ai",
+        metric: "Live screen + audio context",
         description:
             "A local, privacy-first AI assistant that observes your live screen, understands visual & audio context, and allows real-time querying.",
         longDescription:
@@ -262,6 +295,8 @@ export const projects: Project[] = [
         id: 13,
         title: "Resin Manufacturing LIMS",
         slug: "resin-lims",
+        domain: "fullstack",
+        metric: "Multi-unit lab platform",
         description:
             "A comprehensive Laboratory Information Management System (LIMS) for resin manufacturing operations, managing lab units and R&D tracking.",
         longDescription:
@@ -290,6 +325,8 @@ export const projects: Project[] = [
         id: 14,
         title: "CAD AI",
         slug: "cad-ai",
+        domain: "ai",
+        metric: "Text → 3D CAD",
         description:
             "An AI-powered tool leveraging GPT-4o and FreeCAD to generate and modify 3D models using natural language prompts.",
         longDescription:
@@ -319,6 +356,8 @@ export const projects: Project[] = [
         id: 17,
         title: "Shakespearean Sonnet Generator",
         slug: "sonnet-generator",
+        domain: "ml",
+        metric: "Diffusion vs. Transformer",
         description:
             "A comparative deep learning analysis generating Shakespearean sonnets using both Diffusion Models and Autoregressive Transformers.",
         longDescription:
@@ -348,6 +387,8 @@ export const projects: Project[] = [
         id: 18,
         title: "Multi-Modal Terrain Classification",
         slug: "terrain-classification",
+        domain: "ml",
+        metric: "6.7× faster · 28 GB fused",
         description:
             "A highly parallelized pipeline classifying off-road terrain roughness using synchronized multi-modal sensor and RGB image data.",
         longDescription:
@@ -367,7 +408,7 @@ export const projects: Project[] = [
             { category: "Deep Learning", technologies: ["Torchvision (ResNet18)", "MLP Fusion"] },
             { category: "Data Science", technologies: ["Pandas", "Scikit-Learn"] },
         ],
-        image: "/gradient-placeholder.svg",
+        image: "/img/projects/terrain.PNG",
         category: "information-systems",
         featured: true,
         tags: ["PyTorch DDP", "Dask", "Computer Vision", "Parallel Computing", "Sensor Fusion"],
@@ -377,6 +418,8 @@ export const projects: Project[] = [
         id: 11,
         title: "Music Sampler & Discovery App",
         slug: "music-sampler",
+        domain: "fullstack",
+        metric: "GPT-4o vibe analysis",
         description:
             "A modern AI-powered music discovery app blending a TikTok-style feed with deep LLM analysis and Spotify integration.",
         longDescription:
@@ -413,6 +456,8 @@ export const projects: Project[] = [
         id: 3,
         title: "FinSight",
         slug: "finsight",
+        domain: "ai",
+        metric: "Cited answers on SEC filings",
         description:
             "Developed FinSightAI, a full-stack AI platform that analyzes SEC filings using Retrieval-Augmented Generation (RAG).",
         longDescription:
@@ -442,6 +487,8 @@ export const projects: Project[] = [
         id: 4,
         title: "Travel Planner Chatbot",
         slug: "travel-planner",
+        domain: "ai",
+        metric: "Multi-turn planning agent",
         description:
             "Built a conversational AI assistant using LangChain, FastAPI, and Streamlit to help users plan personalized trips.",
         longDescription:
@@ -449,7 +496,7 @@ export const projects: Project[] = [
         challenges: [
             "Maintaining context over a long conversation about complex itineraries.",
             "Handling vague user requests like 'somewhere warm but not too crowded'.",
-            " integrating real-time weather or flight data.",
+            "Integrating real-time weather or flight data.",
         ],
         solutions: [
             "Utilized LangChain agents to dynamically decide when to ask clarifying questions vs. providing recommendations.",
@@ -471,6 +518,8 @@ export const projects: Project[] = [
         id: 5,
         title: "TED Talks Exploration Platform",
         slug: "ted-talks",
+        domain: "ai",
+        metric: "7 agents · 6,000+ talks",
         description:
             "Developed an Agentic AI platform using RAG, LangGraph, and Cytoscape.js for personalized TED Talk discovery and research.",
         longDescription:
@@ -500,14 +549,16 @@ export const projects: Project[] = [
         id: 2,
         title: "Automated Data Ingestion & Summarization",
         slug: "data-ingestion",
+        domain: "data",
+        metric: "S3 → Airflow → Snowflake",
         description:
             "Developed an Airflow-based data pipeline integrating S3 and Snowflake with an interactive FastAPI & Streamlit UI.",
         longDescription:
-            "This project focused on building a robust ETL pipeline for document processing. It automates the ingestion of raw files from S3, processes them using Airflow DAGs, and loads structured metadata into Snowflake. User can then verify and explore this data via a Streamlit dashboard.",
+            "This project focused on building a robust ETL pipeline for document processing. It automates the ingestion of raw files from S3, processes them using Airflow DAGs, and loads structured metadata into Snowflake. Users can then verify and explore this data via a Streamlit dashboard.",
         challenges: [
             "Orchestrating dependent tasks reliably and handling failures gracefully.",
             "Managing secure credentials across multiple services (AWS, Snowflake).",
-            "providing immediate feedback to users when ingestion jobs complete.",
+            "Providing immediate feedback to users when ingestion jobs complete.",
         ],
         solutions: [
             "Leveraged Apache Airflow to define and monitor complex processing workflows.",
@@ -529,6 +580,8 @@ export const projects: Project[] = [
         id: 6,
         title: "Ultra-Fast Grocery Delivery Platform",
         slug: "grocery-delivery",
+        domain: "fullstack",
+        metric: "15-min delivery routing",
         description:
             "Developed an order management system using Java, MySQL, and Google Maps API with real-time tracking.",
         longDescription:
@@ -558,6 +611,8 @@ export const projects: Project[] = [
         id: 7,
         title: "Fuse Element Design",
         slug: "fuse-design",
+        domain: "mechanical",
+        metric: "83% durability gain",
         description:
             "Designed & optimized a new fuse element for electric vehicles with FEA and fatigue testing.",
         longDescription:
@@ -583,6 +638,8 @@ export const projects: Project[] = [
         id: 8,
         title: "3D Printed Manual Transmission",
         slug: "transmission-system",
+        domain: "mechanical",
+        metric: "3 power modes",
         description:
             "Designed a planetary gear system with three power modes, performed gear train calculations and 3D modeling.",
         longDescription:
@@ -606,6 +663,8 @@ export const projects: Project[] = [
         id: 9,
         title: "Wall Sensing Robot",
         slug: "wall-sensing-robot",
+        domain: "mechanical",
+        metric: "PID + onboard vision",
         description:
             "Developed a two-wheeled autonomous robot using TI C2000 with Raspberry Pi 4 and various sensors.",
         longDescription:
@@ -631,6 +690,8 @@ export const projects: Project[] = [
         id: 10,
         title: "Test Tube Dispensing Mechanism",
         slug: "test-tube-dispenser",
+        domain: "mechanical",
+        metric: "Four-bar linkage",
         description:
             "Designed a four-bar linkage system for automated test tube handling with a rack-and-pinion mechanism.",
         longDescription:

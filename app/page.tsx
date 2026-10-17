@@ -1,30 +1,29 @@
-import Navbar from "@/components/navbar";
-import HeroSection from "@/components/hero-section";
-import AboutSection from "@/components/about-section";
-import EducationSection from "@/components/education-section";
-import ProjectsSection from "@/components/projects-section";
-import WorkSection from "@/components/work-section";
-import SkillsSection from "@/components/skills-section";
-import DataDashboardPreview from "@/components/data-dashboard-preview";
-import ContactSection from "@/components/contact-section";
-import Footer from "@/components/footer";
-import ChatbotWidget from "@/components/ChatbotWidget";
+import Header from "@/components/site/header";
+import Hero from "@/components/site/hero";
+import Intro from "@/components/site/intro";
+import Work from "@/components/site/work";
+import Ledger from "@/components/site/ledger";
+import Notebooks from "@/components/site/notebooks";
+import Toolkit from "@/components/site/toolkit";
+import Education from "@/components/site/education";
+import Contact from "@/components/site/contact";
+import Footer from "@/components/site/footer";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-black text-white">
-      <Navbar />
+    <>
+      <Header />
       <main>
-        <HeroSection />
-        <AboutSection />
-        <EducationSection />
-        <WorkSection />
-        <ProjectsSection />
-        <DataDashboardPreview />
-        <SkillsSection />
-        <ContactSection />
+        <Hero />
+        <Intro />
+        <Work />
+        <Ledger />
+        <Notebooks />
+        <Toolkit />
+        <Education />
+        <Contact />
       </main>
       <Footer />
-    </div>
+    </>
   );
 }

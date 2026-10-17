@@ -1,66 +1,61 @@
-import { blogPosts } from "@/lib/data";
-import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import Link from "next/link";
-import Navbar from "@/components/navbar";
-import Footer from "@/components/footer";
-import { Badge } from "@/components/ui/badge";
-import { ArrowLeft } from "lucide-react";
-import Markdown from 'react-markdown';
+import { notFound } from "next/navigation";
+import Markdown from "react-markdown";
+import { blogPosts } from "@/lib/data";
+import Header from "@/components/site/header";
+import Footer from "@/components/site/footer";
+import { Reveal, SplitReveal } from "@/components/site/reveal";
+
+type Params = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
-    return blogPosts.map((post) => ({
-        slug: post.slug,
-    }));
+  return blogPosts.map((post) => ({ slug: post.slug }));
 }
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-    const post = blogPosts.find((p) => p.slug === params.slug);
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params;
+  const post = blogPosts.find((p) => p.slug === slug);
+  return post ? { title: `${post.title} · Sathvik Vadavatha`, description: post.excerpt } : {};
+}
 
-    if (!post) {
-        notFound();
-    }
+export default async function BlogPostPage({ params }: Params) {
+  const { slug } = await params;
+  const post = blogPosts.find((p) => p.slug === slug);
+  if (!post) notFound();
 
-    return (
-        <div className="min-h-screen bg-black text-white">
-            <Navbar />
-            <main className="pt-24 pb-16">
-                <article className="container mx-auto px-4 max-w-3xl">
-                    <Link
-                        href="/blog"
-                        className="inline-flex items-center text-gray-400 hover:text-orange-500 mb-8 transition-colors"
-                    >
-                        <ArrowLeft className="mr-2 h-4 w-4" />
-                        Back to Blog
-                    </Link>
-
-                    <header className="mb-12">
-                        <div className="flex flex-wrap gap-2 mb-6">
-                            {post.tags.map((tag) => (
-                                <Badge
-                                    key={tag}
-                                    variant="secondary"
-                                    className="bg-gray-800 text-gray-300"
-                                >
-                                    {tag}
-                                </Badge>
-                            ))}
-                        </div>
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                            {post.title}
-                        </h1>
-                        <div className="flex items-center gap-4 text-gray-400">
-                            <time>{post.date}</time>
-                            <span>•</span>
-                            <span>{post.readTime}</span>
-                        </div>
-                    </header>
-
-                    <div className="prose prose-invert prose-lg max-w-none prose-headings:text-gray-100 prose-p:text-gray-300 prose-a:text-orange-500 hover:prose-a:text-orange-400">
-                        <Markdown>{post.content}</Markdown>
-                    </div>
-                </article>
-            </main>
-            <Footer />
+  return (
+    <>
+      <Header />
+      <main className="container pb-32 pt-28">
+        <div className="flex items-center justify-between border-b border-rule pb-4">
+          <Link href="/blog" className="label link-draw hover:text-ink">
+            ← Writing
+          </Link>
+          <span className="label">
+            {post.date} · {post.readTime}
+          </span>
         </div>
-    );
+        <article className="mx-auto max-w-[44rem] pt-16">
+          <SplitReveal
+            as="h1"
+            immediate
+            text={post.title}
+            className="display text-[clamp(2.6rem,6vw,5rem)] leading-[0.98] text-ink"
+          />
+          <Reveal delay={0.3}>
+            <p className="hl mt-6 text-2xl leading-snug text-pine">{post.excerpt}</p>
+            <p className="label mt-8">{post.tags.join(" · ")}</p>
+          </Reveal>
+          <Reveal
+            delay={0.4}
+            className="prose prose-lg mt-14 max-w-none border-t border-rule pt-10 prose-headings:font-display prose-headings:font-normal prose-headings:tracking-tight prose-headings:text-ink prose-p:text-ink-2 prose-a:text-pine prose-strong:text-ink"
+          >
+            <Markdown>{post.content}</Markdown>
+          </Reveal>
+        </article>
+      </main>
+      <Footer />
+    </>
+  );
 }

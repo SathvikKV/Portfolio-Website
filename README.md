@@ -8,37 +8,29 @@ This is the source code for my personal portfolio website, built with **Next.js*
 
 ## Features
 
-- **Responsive Design:** Mobile-friendly and optimized for different screen sizes.
-- **Hero Section:** A bold introduction with name, role, and call-to-action.
-- **About Section:** Overview of my background and technical focus.
-- **Education Timeline:** Academic background with key coursework.
-- **Work Experience:** Visual timeline of internships with company logos and rich descriptions.
-- **Project Showcase:** Categorized cards for IS and Mechanical Engineering projects.
-- **Notebook & Dashboard Gallery:** Highlights of key analysis notebooks and visualizations.
-- **Skills Section:** Skill bars and categorized tech stack using icons.
-- **Contact Form:** Built-in form powered by [Formspree](https://formspree.io) for email submissions.
-- **Resume Button:** Direct link to view/download the resume PDF.
-- **Dark Theme:** Sleek black UI with soft orange gradients for highlights.
+- **Editorial, paper-and-ink design:** warm paper background, Fraunces serif display type, terracotta and moss accents, hairline rules and a fixed paper grain.
+- **Live topographic hero:** contour lines traced with marching squares over drifting simplex noise; the terrain rises under the cursor.
+- **Inertial carousels:** a custom drag/flick/trackpad/keyboard carousel engine (`components/site/track.tsx`) with momentum, rubber-band edges, snapping and image parallax, used for projects, notebooks and case-study galleries.
+- **Experience ledger:** expanding entries with key numbers set in clay.
+- **Smooth scrolling** with Lenis; masked word-by-word heading reveals with Framer Motion.
+- **Case study pages:** overview, screenshot plates, problems & approach, stack and next entry.
+- Contact form via [Formspree](https://formspree.io). Respects `prefers-reduced-motion`; responsive down to 360px.
 
 ## Tech Stack
 
-- **Framework:** Next.js (App Router)
-- **Styling:** Tailwind CSS
-- **Components:** ShadCN UI, Lucide Icons
-- **Animation:** Framer Motion
-- **Email Handling:** Formspree
-- **Hosting:** GitHub Pages
+- **Framework:** Next.js 15 (App Router), React 19, TypeScript
+- **Styling:** Tailwind CSS with custom design tokens (`app/globals.css`)
+- **Motion:** Framer Motion, Lenis, simplex-noise
+- **Hosting:** Vercel
 
-## Folder Structure (Simplified)
+## Where things live
+
 ```yaml
-/public /img → All project and logo images
-/resume → Resume PDF
-/src
-/app → Main pages and routing
-/components → Reusable components (Navbar, Footer, Sections)
-/hooks → Custom hooks (e.g., responsive check)
-/lib → Utility functions
-/styles → Global styles and themes
+lib/data.ts         # projects (domain, headline metric, gallery) and blog posts
+lib/profile.ts      # bio, hero stats, experience, education, skills, lab notebooks
+components/site/    # all page sections and shared primitives (track, reveal, plate, topo-field)
+app/                # home, /projects/[slug], /blog
+public/img          # screenshots, logos and icons
 ```
 
 ## Getting Started
@@ -49,7 +41,7 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/SathvikKV/Portfolio-Website.git
-cd Portfolio-Website/new
+cd Portfolio-Website
 ```
    
 Install dependencies:
@@ -67,11 +59,7 @@ Open http://localhost:3000 to view in your browser.
 
 Notes:
 
-The chatbot UI code (RAG-based assistant) is implemented but commented out from the final build.
-
-The older version of the portfolio is available in the old/ folder for reference only.
-
-You can deploy this project on Vercel or use GitHub Pages with static export for a custom domain.
+The chatbot UI code (`components/ChatbotWidget.tsx`, RAG-based assistant backed by `backend/`) is implemented but not mounted.
 
 License
 This project is open for review but not intended for public reuse. All content is original and based on personal experience and projects.
